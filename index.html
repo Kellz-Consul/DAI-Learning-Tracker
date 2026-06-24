@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI Reinvention Learning Programme: 12 Weeks to Agentic AI SME</title>
+<title>Data & AI for Commerce and Sales: 16 Weeks to Song SME</title>
 <style>
   :root {
     --bg: #f8f9fb;
@@ -35,7 +35,6 @@
   .progress-bar { height: 8px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
   .progress-fill { height: 100%; background: linear-gradient(90deg, #82b1ff, #69f0ae); border-radius: 4px; transition: width 0.4s ease; }
 
-  /* Export/Import buttons */
   .sync-bar { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
   .sync-label { font-size: 11px; color: #b3c9e8; margin-right: 4px; }
   .sync-btn { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; border: 1.5px solid rgba(255,255,255,0.35); border-radius: 7px; padding: 7px 14px; cursor: pointer; transition: all 0.15s; background: rgba(255,255,255,0.1); color: white; }
@@ -132,14 +131,14 @@
 <body>
 
 <div class="hero">
-  <h1>🤖 The AI Reinvention Learning Programme</h1>
-  <p>12 Weeks to Agentic AI SME · Data · GenAI · Agentic AI · Strategy & Advisory · Accenture Song · 10 hrs/week</p>
+  <h1>🤖 Data & AI for Commerce and Sales</h1>
+  <p>16 Weeks to Song SME · Accenture Song · AI · Agentic AI · B2B Sales · B2C Commerce · 5 hrs/week</p>
   <div class="stats-row">
     <div class="stat-box"><div class="val" id="stat-done">0</div><div class="lbl">Weeks Complete</div></div>
     <div class="stat-box"><div class="val" id="stat-inprog">0</div><div class="lbl">In Progress</div></div>
     <div class="stat-box"><div class="val" id="stat-del">0</div><div class="lbl">Deliverables Done</div></div>
-    <div class="stat-box"><div class="val">120</div><div class="lbl">Total Hours</div></div>
-    <div class="stat-box"><div class="val">8+</div><div class="lbl">AI Prototypes</div></div>
+    <div class="stat-box"><div class="val">80</div><div class="lbl">Total Hours</div></div>
+    <div class="stat-box"><div class="val">16+</div><div class="lbl">Advisory Assets</div></div>
   </div>
   <div class="progress-wrap">
     <div class="progress-label"><span>Overall Progress</span><span id="pct-label">0%</span></div>
@@ -157,10 +156,11 @@
 </div>
 
 <div class="nav">
-  <div class="nav-tab active" onclick="showPhase(0)">📊 Phase 1: AI-Ready Data</div>
-  <div class="nav-tab" onclick="showPhase(1)">🎯 Phase 2: AI Personalisation</div>
-  <div class="nav-tab" onclick="showPhase(2)">🤖 Phase 3: Agentic AI Builds</div>
+  <div class="nav-tab active" onclick="showPhase(0)">🎵 Phase 1: Song & AI Foundations</div>
+  <div class="nav-tab" onclick="showPhase(1)">🎯 Phase 2: AI for Marketing & CX</div>
+  <div class="nav-tab" onclick="showPhase(2)">🤖 Phase 3: Agentic AI in Practice</div>
   <div class="nav-tab" onclick="showPhase(3)">🚀 Phase 4: Strategy & Advisory</div>
+  <div class="nav-tab" onclick="showPhase(4)">🛒 Phase 5: Commerce & Sales</div>
 </div>
 
 <div class="main">
@@ -169,32 +169,32 @@
   <div class="phase-panel active" id="phase-0" style="--phase-color:#1565c0">
     <div class="phase-header">
       <span class="phase-badge" style="background:#1565c0">PHASE 1</span>
-      <span class="phase-title">AI-Ready Data Foundations</span>
+      <span class="phase-title">Accenture Song & AI Foundations</span>
     </div>
-    <div class="phase-desc"><strong>Weeks 1–3 · 30 hrs total.</strong> Build the AI data foundation. By end of week 3 you have a working semantic search engine, a RAG pipeline, and a real-time AI event trigger — and you understand the data architecture that powers every AI system in the programme.</div>
+    <div class="phase-desc"><strong>Weeks 1–3 · 15 hrs total.</strong> Build your foundation. Understand what Accenture Song sells and who we sell it to. Learn how GenAI is reshaping CX and marketing. Start using Claude confidently as a daily work tool. By end of Week 3 you can speak credibly about AI with any client.</div>
 
     <div class="week-card" id="wk-1">
       <div class="week-top" onclick="toggleWeek('wk-1')">
         <span class="week-num" style="background:#1565c0">WK 1</span>
-        <span class="week-title">AI Data Fundamentals + Embeddings + Vector Stores</span>
+        <span class="week-title">The GenAI Landscape & Claude as Your AI Partner</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-1')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">4 hrs — Learn</span>
-          <span class="ts-pill ts-build">5 hrs — Build</span>
-          <span class="ts-pill ts-review">1 hr — Document</span>
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">2 hrs — Hands-on with Claude</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>How LLMs consume customer data — tokens, context windows, structured vs unstructured</div>
-              <div class="concept"><span class="concept-dot">·</span>Embeddings — turning text, products, and behaviours into vectors AI can reason over</div>
-              <div class="concept"><span class="concept-dot">·</span>Vector databases (Pinecone, pgvector, Weaviate) — the memory layer of every AI app</div>
-              <div class="concept"><span class="concept-dot">·</span>Semantic search vs keyword search — why this changes product discovery entirely</div>
-              <div class="concept"><span class="concept-dot">·</span>CRM vs CDP vs DMP — the landscape map every Song client asks about</div>
+              <div class="concept"><span class="concept-dot">·</span>What GenAI actually is — LLMs, tokens, prompting, context windows (non-technical explainer)</div>
+              <div class="concept"><span class="concept-dot">·</span>The GenAI landscape: Claude, GPT-4, Gemini — how to position them for clients</div>
+              <div class="concept"><span class="concept-dot">·</span>Why Claude is differentiated — safety, reasoning, long context, enterprise readiness</div>
+              <div class="concept"><span class="concept-dot">·</span>Prompt engineering fundamentals: role, task, format, examples — the consulting mindset applied to AI</div>
+              <div class="concept"><span class="concept-dot">·</span>How AI is already changing CX, marketing, and commerce — the Accenture Song thesis</div>
             </div>
           </div>
           <div class="body-col">
@@ -202,39 +202,38 @@
             <div class="resource-list">
               <a class="resource" href="https://docs.anthropic.com/en/docs/intro-to-claude" target="_blank">
                 <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Intro to Claude</div><div class="res-desc">Claude API fundamentals, prompt engineering guide, token concepts</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://docs.pinecone.io/guides/get-started/quickstart" target="_blank">
-                <span class="res-icon">🔷</span>
-                <div class="res-info"><div class="res-name">Pinecone — Vector DB Quickstart</div><div class="res-desc">Set up your first vector index and run semantic queries</div><span class="res-tag tag-free">Free tier</span></div>
+                <div class="res-info"><div class="res-name">Anthropic — Intro to Claude</div><div class="res-desc">Start here. Claude capabilities, how it differs, what it's good at.</div><span class="res-tag tag-free">Free</span></div>
               </a>
               <a class="resource" href="https://www.youtube.com/watch?v=ztBJqzBU5kc" target="_blank">
                 <span class="res-icon">▶️</span>
-                <div class="res-info"><div class="res-name">Andrej Karpathy — Intro to LLMs (1hr)</div><div class="res-desc">Best conceptual explanation of how LLMs work — non-technical enough for client conversations</div><span class="res-tag tag-free">Free</span></div>
+                <div class="res-info"><div class="res-name">Andrej Karpathy — Intro to LLMs (1hr)</div><div class="res-desc">The clearest non-technical explanation of how LLMs work — use this in client conversations</div><span class="res-tag tag-free">Free</span></div>
               </a>
-              <a class="resource" href="https://learn.deeplearning.ai/courses/building-systems-with-chatgpt" target="_blank">
-                <span class="res-icon">🎓</span>
-                <div class="res-info"><div class="res-name">DeepLearning.AI — Building Systems with LLMs</div><div class="res-desc">Short practical course on chaining LLM calls — perfect Week 1 foundation</div><span class="res-tag tag-free">Free</span></div>
+              <a class="resource" href="https://www.accenture.com/us-en/insights/song/index" target="_blank">
+                <span class="res-icon">🎵</span>
+                <div class="res-info"><div class="res-name">Accenture Song — Thought Leadership Hub</div><div class="res-desc">Read 2–3 recent articles on AI and CX transformation. Get fluent in the Song narrative.</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Anthropic — Prompt Engineering Guide</div><div class="res-desc">Official best practices for prompting Claude — directly applicable to daily consulting work</div><span class="res-tag tag-free">Free</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
-          <div class="build-text">Semantic Product Search Engine using Claude API + Pinecone</div>
+          <div class="build-label">🤖 Claude Task This Week</div>
+          <div class="build-text">Use Claude to build your first consulting asset — no coding required.</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">1</span>Set up Claude API (console.anthropic.com) + Pinecone free account</div>
-            <div class="build-step"><span class="step-num">2</span>Embed a 50-product catalogue into Pinecone</div>
-            <div class="build-step"><span class="step-num">3</span>Build a query function: "gift for a mum who loves gardening" → top 5 products, no keywords</div>
-            <div class="build-step"><span class="step-num">4</span>Layer a Claude API call to generate a personalised product pitch for the top result</div>
-            <div class="build-step"><span class="step-num">5</span>Test with 10 queries — document where it works and where it breaks</div>
+            <div class="build-step"><span class="step-num">1</span>Open Claude.ai and ask: "Explain GenAI to a CMO in 3 bullet points they can share with their board."</div>
+            <div class="build-step"><span class="step-num">2</span>Iterate: ask Claude to make it shorter, then more specific to retail, then more specific to financial services.</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Write a 'What is GenAI?' FAQ for a client's marketing leadership team — 5 questions and answers."</div>
+            <div class="build-step"><span class="step-num">4</span>Refine the output. Save it as your first reusable consulting asset.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d1')"><span class="del-label">Working semantic search engine (demo-able to a client)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d2')"><span class="del-label">"AI-Ready Data" explainer one-pager (client-facing language)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d3')"><span class="del-label">CDP landscape cheat sheet (CRM vs CDP vs DMP vs Warehouse)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d1')"><span class="del-label">GenAI FAQ document for clients (Claude-assisted, your edits)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d2')"><span class="del-label">GenAI landscape cheat sheet (Claude models, use cases, positioning)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d3')"><span class="del-label">Personal prompt library started (save your best prompts)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -247,62 +246,59 @@
     <div class="week-card" id="wk-2">
       <div class="week-top" onclick="toggleWeek('wk-2')">
         <span class="week-num" style="background:#1565c0">WK 2</span>
-        <span class="week-title">RAG Pipelines + Identity Resolution + Real-Time AI Triggers</span>
+        <span class="week-title">Customer Data & AI — What Every Consultant Needs to Know</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-2')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">3 hrs — Learn</span>
-          <span class="ts-pill ts-build">6 hrs — Build</span>
-          <span class="ts-pill ts-review">1 hr — Document</span>
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">2 hrs — Hands-on with Claude</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>RAG architecture — retriever, context injection, generator. The enterprise AI standard</div>
-              <div class="concept"><span class="concept-dot">·</span>Chunking strategies, reranking, hybrid search — what separates good RAG from bad RAG</div>
-              <div class="concept"><span class="concept-dot">·</span>ML identity resolution — probabilistic matching, entity linking, deduplication</div>
-              <div class="concept"><span class="concept-dot">·</span>Event-driven AI — how real-time behavioural signals trigger AI decisions</div>
+              <div class="concept"><span class="concept-dot">·</span>CRM vs CDP vs DMP vs Data Warehouse — the landscape map every Song client asks about</div>
+              <div class="concept"><span class="concept-dot">·</span>What a CDP does: unified customer profiles, real-time data, identity resolution</div>
+              <div class="concept"><span class="concept-dot">·</span>Salesforce Data Cloud and Adobe Real-Time CDP — what they are and when to recommend each</div>
+              <div class="concept"><span class="concept-dot">·</span>How AI uses customer data: personalisation, propensity scoring, segmentation, predictions</div>
+              <div class="concept"><span class="concept-dot">·</span>Data quality and consent — the consultant's due diligence checklist</div>
             </div>
           </div>
           <div class="body-col">
             <div class="section-label">Where to Learn</div>
             <div class="resource-list">
-              <a class="resource" href="https://learn.deeplearning.ai/courses/building-applications-vector-databases" target="_blank">
-                <span class="res-icon">🎓</span>
-                <div class="res-info"><div class="res-name">DeepLearning.AI — Building with Vector DBs</div><div class="res-desc">RAG fundamentals, chunking strategies, retrieval patterns — hands-on</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://python.langchain.com/docs/tutorials/rag/" target="_blank">
-                <span class="res-icon">🦜</span>
-                <div class="res-info"><div class="res-name">LangChain — RAG Tutorial</div><div class="res-desc">Step-by-step: load doc → chunk → embed → retrieve → generate</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Tool Use Guide</div><div class="res-desc">How to give Claude tools to call — foundation of agentic AI</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html" target="_blank">
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/get-started-with-data-cloud" target="_blank">
                 <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">AWS Clean Rooms — Overview</div><div class="res-desc">Data clean rooms for privacy-safe identity resolution and measurement</div><span class="res-tag tag-free">Free docs</span></div>
+                <div class="res-info"><div class="res-name">Salesforce Trailhead — Data Cloud Basics</div><div class="res-desc">30–45 min trail. Earn the badge. Unified profiles, data streams, identity resolution.</div><span class="res-tag tag-cert">Free badge</span></div>
+              </a>
+              <a class="resource" href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/home" target="_blank">
+                <span class="res-icon">🔴</span>
+                <div class="res-info"><div class="res-name">Adobe Experience League — AEP Overview</div><div class="res-desc">Read the "Get Started" section. Understand XDM, Real-Time CDP, identity namespaces.</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://segment.com/blog/what-is-a-cdp/" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Segment — What is a CDP? (Plain English)</div><div class="res-desc">Best plain-English explainer on CDPs — great mental model before platform specifics</div><span class="res-tag tag-read">Reading</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week — Two Builds</div>
+          <div class="build-label">🤖 Claude Task This Week</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">A1</span>Ingest brand guidelines PDF → chunk → embed → store in Pinecone</div>
-            <div class="build-step"><span class="step-num">A2</span>Query via Claude API: "Write product description in our brand voice." Compare with/without RAG.</div>
-            <div class="build-step"><span class="step-num">B1</span>Simulate cart abandonment event stream in Python (generate random events)</div>
-            <div class="build-step"><span class="step-num">B2</span>On each event → call Claude API → generate personalised recovery message. Log 20 outputs.</div>
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Explain the difference between CRM, CDP, DMP and Data Warehouse to a CMO. Use a table."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Write a 1-page CDP vendor comparison between Salesforce Data Cloud and Adobe Real-Time CDP. Include: use case fit, key strengths, typical client profile."</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Generate an AI data readiness checklist for a marketing function — 10 questions a consultant should ask before recommending an AI personalisation project."</div>
+            <div class="build-step"><span class="step-num">4</span>Review and refine both outputs. These become reusable assets in client conversations.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d1')"><span class="del-label">Working RAG pipeline on brand/product data (demo-ready)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d2')"><span class="del-label">Real-time AI event trigger system (cart abandonment prototype)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d3')"><span class="del-label">Identity resolution explainer diagram (client-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d1')"><span class="del-label">✅ Salesforce Data Cloud Trailhead badge earned</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d2')"><span class="del-label">CDP vendor comparison one-pager (SFDC vs Adobe, client-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d3')"><span class="del-label">AI data readiness checklist (10 diagnostic questions)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -314,64 +310,59 @@
     <div class="week-card" id="wk-3">
       <div class="week-top" onclick="toggleWeek('wk-3')">
         <span class="week-num" style="background:#1565c0">WK 3</span>
-        <span class="week-title">CDP Platforms (SFDC + Adobe) + GA4 Certification + AI Governance</span>
+        <span class="week-title">Accenture Song Service Lines — Deep Dive & Market Positioning</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-3')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">4 hrs — Platform study</span>
-          <span class="ts-pill ts-build">4 hrs — Hands-on + cert</span>
-          <span class="ts-pill ts-review">2 hrs — Governance artefact</span>
+          <span class="ts-pill ts-learn">2 hrs — Research</span>
+          <span class="ts-pill ts-build">2 hrs — Claude co-creation</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Salesforce Data Cloud — data streams, unified profiles, connection to Agentforce and Einstein</div>
-              <div class="concept"><span class="concept-dot">·</span>Adobe Real-Time CDP + AEP — XDM schema, identity namespaces, Sensei AI layer</div>
-              <div class="concept"><span class="concept-dot">·</span>When to recommend SFDC vs Adobe — the 8-criteria selection framework</div>
-              <div class="concept"><span class="concept-dot">·</span>AI data governance — consent as AI input, data minimisation, EU AI Act basics</div>
+              <div class="concept"><span class="concept-dot">·</span>Song's 4 service areas: CX Transformation, MarTech Advisory, GenAI for Marketing, Commerce</div>
+              <div class="concept"><span class="concept-dot">·</span>How Song differentiates vs WPP, Publicis, Deloitte Digital, McKinsey Design</div>
+              <div class="concept"><span class="concept-dot">·</span>The Accenture Total Enterprise Reinvention narrative — where Song fits in the broader story</div>
+              <div class="concept"><span class="concept-dot">·</span>Typical Song client archetypes: CMO transformation, MarTech consolidation, AI-first marketing</div>
+              <div class="concept"><span class="concept-dot">·</span>How to position yourself as an AI SME within Song engagements</div>
             </div>
           </div>
           <div class="body-col">
             <div class="section-label">Where to Learn</div>
             <div class="resource-list">
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/get-started-with-data-cloud" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Salesforce Trailhead — Data Cloud Basics</div><div class="res-desc">Official trail covering unified profiles, data streams, identity resolution</div><span class="res-tag tag-cert">Badge</span></div>
+              <a class="resource" href="https://www.accenture.com/us-en/insights/song/index" target="_blank">
+                <span class="res-icon">🎵</span>
+                <div class="res-info"><div class="res-name">Accenture Song — Insights Hub</div><div class="res-desc">Read at least 3 recent reports. Note the key themes, stats, and language Song uses with clients.</div><span class="res-tag tag-read">Reading</span></div>
               </a>
-              <a class="resource" href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/home" target="_blank">
-                <span class="res-icon">🔴</span>
-                <div class="res-info"><div class="res-name">Adobe Experience League — AEP Foundations</div><div class="res-desc">XDM schema, Real-Time CDP architecture, identity namespaces</div><span class="res-tag tag-free">Free</span></div>
+              <a class="resource" href="https://www.accenture.com/us-en/insights/technology/reinvention-in-the-age-of-generative-ai" target="_blank">
+                <span class="res-icon">🔄</span>
+                <div class="res-info"><div class="res-name">Accenture — Reinvention in the Age of GenAI</div><div class="res-desc">The Total Enterprise Reinvention thesis — the strategic backdrop for all Song AI work</div><span class="res-tag tag-read">Reading</span></div>
               </a>
-              <a class="resource" href="https://skillshop.exceedlms.com/student/path/2938" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">Google Skillshop — GA4 Certification</div><div class="res-desc">Sit and pass in one 4-hr session. Immediate, widely recognised credential.</div><span class="res-tag tag-cert">Free cert</span></div>
-              </a>
-              <a class="resource" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank">
-                <span class="res-icon">⚖️</span>
-                <div class="res-info"><div class="res-name">EU AI Act — Official Summary</div><div class="res-desc">High-risk AI classification, what it means for marketing AI systems</div><span class="res-tag tag-read">Reading</span></div>
+              <a class="resource" href="https://www.forrester.com/report/the-cx-index/RES137227" target="_blank">
+                <span class="res-icon">📈</span>
+                <div class="res-info"><div class="res-name">Forrester — Customer Experience Index</div><div class="res-desc">The framework Song uses to frame client CX ambition and maturity</div><span class="res-tag tag-read">Reading</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Actions This Week</div>
+          <div class="build-label">🤖 Claude Task This Week</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">1</span>Complete "Data Cloud Basics" Trailhead trail — earn the badge</div>
-            <div class="build-step"><span class="step-num">2</span>Complete AEP Foundations on Experience League</div>
-            <div class="build-step"><span class="step-num">3</span>Sit and pass GA4 certification on Skillshop (block a full 4-hr session)</div>
-            <div class="build-step"><span class="step-num">4</span>Use Claude to draft an AI Data Handling Policy for a marketing function</div>
-            <div class="build-step"><span class="step-num">5</span>Build CDP vendor comparison one-pager (SFDC vs Adobe, 8 criteria)</div>
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "I work in Accenture Song. Help me write a 1-page pitch narrative for a GenAI for Marketing engagement — targeting a CMO at a large retail brand."</div>
+            <div class="build-step"><span class="step-num">2</span>Iterate: ask Claude to tailor it for financial services, then for B2B technology. Notice how the pain points shift.</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "What questions should an Accenture Song consultant ask in a discovery conversation about AI and marketing?"</div>
+            <div class="build-step"><span class="step-num">4</span>Combine into a Song AI discovery guide for your personal use on engagements.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d1')"><span class="del-label">✅ GA4 Certification passed (add to LinkedIn)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d2')"><span class="del-label">✅ Salesforce Data Cloud Trailhead badge earned</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d3')"><span class="del-label">CDP vendor comparison one-pager (SFDC vs Adobe)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d4')"><span class="del-label">AI Data Governance policy template</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d1')"><span class="del-label">Song AI pitch narrative (3 industry variants — retail, FS, B2B)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d2')"><span class="del-label">Song AI discovery question guide (your personal playbook)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d3')"><span class="del-label">Song competitive positioning cheat sheet (vs WPP, Publicis, Deloitte)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -382,7 +373,7 @@
 
     <div class="milestone" style="--phase-color:#1565c0">
       <span class="ms-icon">🎯</span>
-      <div class="ms-text"><strong>Phase 1 Milestone</strong>GA4 certified. Trailhead badge earned. You have a working semantic search engine, RAG pipeline, and event trigger system. You understand the data architecture AI runs on — and can explain it credibly to a CMO or solutions architect.</div>
+      <div class="ms-text"><strong>Phase 1 Milestone</strong>Trailhead badge earned. You can explain GenAI confidently to a CMO. You know the Song service lines, the competitive landscape, and how to start a discovery conversation about AI. You have 3 reusable client-facing assets and a growing prompt library.</div>
     </div>
   </div>
 
@@ -390,67 +381,65 @@
   <div class="phase-panel" id="phase-1" style="--phase-color:#6a1b9a">
     <div class="phase-header">
       <span class="phase-badge" style="background:#6a1b9a">PHASE 2</span>
-      <span class="phase-title">AI-Native Personalisation & MarTech</span>
+      <span class="phase-title">AI for Marketing, CX & the MarTech Stack</span>
     </div>
-    <div class="phase-desc"><strong>Weeks 4–6 · 30 hrs total.</strong> Build a recommendation engine, an NBA model, configure Salesforce Agentforce, run an MMM analysis, and wire up a full AI marketing workflow in n8n. By week 6 you can advise on and demo AI personalisation end-to-end.</div>
+    <div class="phase-desc"><strong>Weeks 4–6 · 15 hrs total.</strong> Go deep on how AI is transforming marketing and CX. Learn personalisation, Agentforce, Adobe, content automation, and measurement. By Week 6 you can advise on AI across the full MarTech stack — with hands-on experience on the platforms clients are buying.</div>
 
     <div class="week-card" id="wk-4">
       <div class="week-top" onclick="toggleWeek('wk-4')">
         <span class="week-num" style="background:#6a1b9a">WK 4</span>
-        <span class="week-title">ML Personalisation + Recommendation Engines + NBA Models</span>
+        <span class="week-title">AI Personalisation, Next-Best-Action & Customer Journey Intelligence</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-4')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">3 hrs — Learn</span>
-          <span class="ts-pill ts-build">6 hrs — Build</span>
-          <span class="ts-pill ts-review">1 hr — Document</span>
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">2 hrs — Claude co-creation</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Personalisation maturity: rules → segments → collaborative filtering → RL</div>
-              <div class="concept"><span class="concept-dot">·</span>Recommendation engines — matrix factorisation, item-item, user-item collaborative filtering</div>
-              <div class="concept"><span class="concept-dot">·</span>Bandit algorithms — exploration vs exploitation, the engine behind "you might also like"</div>
-              <div class="concept"><span class="concept-dot">·</span>Next-Best-Action — propensity scoring, eligibility rules, arbitration, fatigue management</div>
+              <div class="concept"><span class="concept-dot">·</span>Personalisation maturity model: rules-based → segment-based → AI-driven → real-time agentic</div>
+              <div class="concept"><span class="concept-dot">·</span>Next-Best-Action (NBA): propensity scoring, eligibility rules, action arbitration, fatigue management</div>
+              <div class="concept"><span class="concept-dot">·</span>AI in customer journey mapping — how LLMs analyse and redesign journeys</div>
+              <div class="concept"><span class="concept-dot">·</span>Real-world personalisation ROI: typical uplift ranges, what to promise and what to caveat</div>
+              <div class="concept"><span class="concept-dot">·</span>Common failure modes: why personalisation projects stall and how to prevent them</div>
             </div>
           </div>
           <div class="body-col">
             <div class="section-label">Where to Learn</div>
             <div class="resource-list">
-              <a class="resource" href="https://surprise.readthedocs.io/en/stable/getting_started.html" target="_blank">
-                <span class="res-icon">⭐</span>
-                <div class="res-info"><div class="res-name">Surprise Library — RecSys Getting Started</div><div class="res-desc">Python recommendation system library — collaborative filtering in 20 lines of code</div><span class="res-tag tag-tool">Tool</span></div>
-              </a>
-              <a class="resource" href="https://learn.deeplearning.ai/courses/machine-learning-in-production" target="_blank">
-                <span class="res-icon">🎓</span>
-                <div class="res-info"><div class="res-name">DeepLearning.AI — ML in Production</div><div class="res-desc">Moving from model to real-world deployment — crucial for NBA systems</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">Kaggle — Intro to Machine Learning</div><div class="res-desc">Propensity models, feature engineering — practical ML for personalisation</div><span class="res-tag tag-free">Free</span></div>
-              </a>
               <a class="resource" href="https://www.pega.com/insights/articles/what-is-next-best-action-marketing" target="_blank">
                 <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Pega — What is Next-Best-Action?</div><div class="res-desc">Enterprise NBA framework — how Accenture clients implement it in practice</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Pega — What is Next-Best-Action?</div><div class="res-desc">Enterprise NBA framework with real examples — how Song clients implement it in practice</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">McKinsey — The Value of Getting Personalisation Right</div><div class="res-desc">Benchmark data on personalisation ROI — use these numbers to build business cases</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/einstein-next-best-action" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">Trailhead — Einstein Next Best Action</div><div class="res-desc">Understand how SFDC implements NBA — strategy + recommendation framework</div><span class="res-tag tag-cert">Free badge</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude Task This Week</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">A</span>Collaborative filtering recommender → Claude API generates personalised copy for top recommendation per user</div>
-            <div class="build-step"><span class="step-num">B</span>NBA engine: customer attributes → score propensity models → apply business rules → rank actions → Claude narrates the decision</div>
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Design a Next-Best-Action framework for a retail bank's marketing team. Include: customer signals to track, action types, eligibility rules, and how to measure success."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Build a personalisation maturity assessment — 5 dimensions, 4 maturity levels, with example evidence for each level and recommended next steps."</div>
+            <div class="build-step"><span class="step-num">3</span>Iterate and refine both outputs. The maturity assessment becomes a workshop tool.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d1')"><span class="del-label">Working recommender prototype with Claude copy layer</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d2')"><span class="del-label">NBA engine prototype</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d3')"><span class="del-label">Personalisation maturity model diagram (strategic artefact)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d1')"><span class="del-label">NBA framework design (industry-specific, workshop-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d2')"><span class="del-label">Personalisation maturity assessment tool (5 dimensions)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d3')"><span class="del-label">✅ Einstein Next Best Action Trailhead badge earned</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -462,24 +451,25 @@
     <div class="week-card" id="wk-5">
       <div class="week-top" onclick="toggleWeek('wk-5')">
         <span class="week-num" style="background:#6a1b9a">WK 5</span>
-        <span class="week-title">Salesforce Agentforce + Adobe Sensei + AI in the MarTech Stack</span>
+        <span class="week-title">Salesforce Agentforce + Adobe Sensei + AI Across the MarTech Stack</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-5')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">3 hrs — Platform study</span>
-          <span class="ts-pill ts-build">5 hrs — Hands-on config</span>
-          <span class="ts-pill ts-review">2 hrs — Artefact creation</span>
+          <span class="ts-pill ts-learn">2 hrs — Platform study</span>
+          <span class="ts-pill ts-build">2 hrs — Hands-on config + Claude</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Agentforce — Service, SDR, Commerce agent types; architecture; Data Cloud connection</div>
-              <div class="concept"><span class="concept-dot">·</span>Adobe Sensei GenAI — AI across AEP, Journey Optimizer, Target, predictive segments</div>
-              <div class="concept"><span class="concept-dot">·</span>AI content generation inside Journey Optimizer</div>
-              <div class="concept"><span class="concept-dot">·</span>Braze, Dynamic Yield, Optimizely — AI personalisation in best-of-breed stacks</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentforce — Service, SDR, Commerce agent types; how it connects to Data Cloud and Einstein</div>
+              <div class="concept"><span class="concept-dot">·</span>Adobe Sensei GenAI — AI across AEP, Journey Optimizer, Target, and predictive segments</div>
+              <div class="concept"><span class="concept-dot">·</span>MarTech stack advisory — how to assess a client's stack and recommend AI-ready tools</div>
+              <div class="concept"><span class="concept-dot">·</span>Braze, Dynamic Yield, Optimizely — where AI sits in best-of-breed martech stacks</div>
+              <div class="concept"><span class="concept-dot">·</span>When to consolidate vs when to integrate — the Song advisory lens</div>
             </div>
           </div>
           <div class="body-col">
@@ -487,34 +477,33 @@
             <div class="resource-list">
               <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/build-and-deploy-agentforce-agents" target="_blank">
                 <span class="res-icon">🤖</span>
-                <div class="res-info"><div class="res-name">Trailhead — Build & Deploy Agentforce Agents</div><div class="res-desc">Official trail: configure agents, knowledge bases, intents, escalation rules</div><span class="res-tag tag-cert">Badge</span></div>
+                <div class="res-info"><div class="res-name">Trailhead — Build & Deploy Agentforce Agents</div><div class="res-desc">Official trail — configure an agent with knowledge base, intents, and escalation rules</div><span class="res-tag tag-cert">Free badge</span></div>
               </a>
               <a class="resource" href="https://experienceleague.adobe.com/en/docs/journey-optimizer/using/get-started/get-started" target="_blank">
                 <span class="res-icon">🔴</span>
-                <div class="res-info"><div class="res-name">Adobe Experience League — Journey Optimizer</div><div class="res-desc">AI content generation, real-time journey triggers, Sensei integration</div><span class="res-tag tag-free">Free</span></div>
+                <div class="res-info"><div class="res-name">Adobe Experience League — Journey Optimizer</div><div class="res-desc">AI content generation, real-time journey triggers, Sensei GenAI integration</div><span class="res-tag tag-free">Free</span></div>
               </a>
               <a class="resource" href="https://www.braze.com/resources/articles/braze-ai-overview" target="_blank">
                 <span class="res-icon">💬</span>
-                <div class="res-info"><div class="res-name">Braze — AI & Personalisation Overview</div><div class="res-desc">How Braze uses AI for send-time optimisation, predictive churn, content recommendations</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Braze — AI & Personalisation Overview</div><div class="res-desc">Send-time optimisation, predictive churn, content recommendations — vendor reference</div><span class="res-tag tag-read">Reading</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Actions This Week</div>
+          <div class="build-label">🤖 Claude + Trailhead Task This Week</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">1</span>Complete Agentforce Trailhead trail (earn badge)</div>
-            <div class="build-step"><span class="step-num">2</span>In SFDC dev org: configure Service Agent — knowledge base, 3 intents, escalation rules</div>
-            <div class="build-step"><span class="step-num">3</span>Complete AEP AI/ML features module on Experience League</div>
-            <div class="build-step"><span class="step-num">4</span>Build "AI in the Adobe Stack" annotated diagram</div>
-            <div class="build-step"><span class="step-num">5</span>Write Agentforce use case brief for one industry</div>
+            <div class="build-step"><span class="step-num">1</span>Complete Agentforce Trailhead trail — earn the badge (approx 1 hr)</div>
+            <div class="build-step"><span class="step-num">2</span>In a SFDC developer org (free): configure a Service Agent with a knowledge base and 2 intents</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Create an annotated diagram description of AI across the Adobe stack — AEP, Journey Optimizer, Target, and Firefly — and how they connect." Use this to build a slide or one-pager.</div>
+            <div class="build-step"><span class="step-num">4</span>Ask Claude: "Write an Agentforce use case brief for a telco customer service transformation. Include: problem, solution architecture, expected outcomes, risks."</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
           <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d1')"><span class="del-label">✅ Agentforce Trailhead badge earned</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d2')"><span class="del-label">Configured Agentforce Service Agent (live in dev org)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d3')"><span class="del-label">"AI in Adobe Stack" annotated diagram</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d2')"><span class="del-label">Configured Agentforce Service Agent in dev org</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d3')"><span class="del-label">AI across Adobe stack one-pager (annotated diagram)</span></div>
           <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d4')"><span class="del-label">Agentforce use case brief (industry-specific)</span></div>
         </div>
         <div class="notes-section">
@@ -527,56 +516,59 @@
     <div class="week-card" id="wk-6">
       <div class="week-top" onclick="toggleWeek('wk-6')">
         <span class="week-num" style="background:#6a1b9a">WK 6</span>
-        <span class="week-title">Marketing Mix Modelling + Causal AI + n8n AI Automation</span>
+        <span class="week-title">AI Content & Creative + Campaign Automation + Measurement</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-6')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">2 hrs — Learn</span>
-          <span class="ts-pill ts-build">7 hrs — Build</span>
-          <span class="ts-pill ts-review">1 hr — Document</span>
+          <span class="ts-pill ts-learn">1 hr — Learn</span>
+          <span class="ts-pill ts-build">3 hrs — Hands-on</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Why ML-based MMM is replacing last-click attribution post-cookie</div>
-              <div class="concept"><span class="concept-dot">·</span>Causal AI and incrementality — true lift vs correlation</div>
-              <div class="concept"><span class="concept-dot">·</span>n8n vs Make vs Zapier — no-code agentic automation for marketing</div>
-              <div class="concept"><span class="concept-dot">·</span>Chaining LLM calls + APIs into autonomous marketing pipelines</div>
+              <div class="concept"><span class="concept-dot">·</span>GenAI content at scale: how brands are using AI across the content supply chain</div>
+              <div class="concept"><span class="concept-dot">·</span>Adobe Firefly — IP-indemnified creative AI, what it means for enterprise brands</div>
+              <div class="concept"><span class="concept-dot">·</span>n8n — no-code AI automation for marketing workflows (trigger → AI → action)</div>
+              <div class="concept"><span class="concept-dot">·</span>Post-cookie measurement: Marketing Mix Modelling (MMM), incrementality testing, GA4</div>
+              <div class="concept"><span class="concept-dot">·</span>GA4 Certification — a quick, recognised credential to have on your profile</div>
             </div>
           </div>
           <div class="body-col">
             <div class="section-label">Where to Learn</div>
             <div class="resource-list">
-              <a class="resource" href="https://github.com/facebookexperimental/Robyn" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">Meta Robyn — Open Source MMM</div><div class="res-desc">Run on their sample dataset. Generate budget allocation curves.</div><span class="res-tag tag-tool">Open source</span></div>
-              </a>
-              <a class="resource" href="https://github.com/google/meridian" target="_blank">
-                <span class="res-icon">🔵</span>
-                <div class="res-info"><div class="res-name">Google Meridian — MMM Framework</div><div class="res-desc">Google's open-source Bayesian MMM — growing enterprise adoption in 2025</div><span class="res-tag tag-tool">Open source</span></div>
+              <a class="resource" href="https://firefly.adobe.com" target="_blank">
+                <span class="res-icon">🔥</span>
+                <div class="res-info"><div class="res-name">Adobe Firefly — Try It Free</div><div class="res-desc">IP-indemnified enterprise creative AI. Generate images, extend backgrounds, recolour.</div><span class="res-tag tag-tool">Free trial</span></div>
               </a>
               <a class="resource" href="https://docs.n8n.io/getting-started/quickstart/" target="_blank">
                 <span class="res-icon">⚡</span>
-                <div class="res-info"><div class="res-name">n8n — Quickstart Guide</div><div class="res-desc">Build your first workflow in 20 minutes. Free self-hosted or n8n.cloud trial.</div><span class="res-tag tag-tool">Free tier</span></div>
+                <div class="res-info"><div class="res-name">n8n — Quickstart Guide</div><div class="res-desc">Build your first AI-connected workflow in 20 minutes. Free cloud trial.</div><span class="res-tag tag-tool">Free tier</span></div>
+              </a>
+              <a class="resource" href="https://skillshop.exceedlms.com/student/path/2938" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">Google Skillshop — GA4 Certification</div><div class="res-desc">Sit and pass in one 2–3 hr session. Free, immediately recognised credential.</div><span class="res-tag tag-cert">Free cert</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude + Tools Task This Week</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">A</span>Run Meta Robyn on sample dataset. Use Claude to write the CMO narrative from the model outputs.</div>
-            <div class="build-step"><span class="step-num">B</span>n8n workflow: new CRM lead → Claude API scores + generates email → logs to Google Sheet → Slack alert.</div>
+            <div class="build-step"><span class="step-num">1</span>Sit the GA4 certification on Google Skillshop (block 2–3 hrs)</div>
+            <div class="build-step"><span class="step-num">2</span>Try Adobe Firefly: generate 3 creative concepts for a campaign brief. Note the quality and IP implications.</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Design an AI-powered content supply chain for a retail brand — from brief to publish. Include which AI tools handle each step and where human approval sits."</div>
+            <div class="build-step"><span class="step-num">4</span>In n8n (free cloud): build a simple workflow — new form entry → Claude generates a campaign email → saves to Google Sheet.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d1')"><span class="del-label">MMM analysis + CMO narrative brief</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d2')"><span class="del-label">Working n8n AI marketing workflow (demo-ready)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d3')"><span class="del-label">Phase 2 portfolio summary</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d1')"><span class="del-label">✅ GA4 Certification passed (add to LinkedIn)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d2')"><span class="del-label">AI content supply chain design (from brief to publish)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d3')"><span class="del-label">Working n8n AI workflow (form → Claude → Google Sheet)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -587,7 +579,7 @@
 
     <div class="milestone" style="--phase-color:#6a1b9a">
       <span class="ms-icon">🎯</span>
-      <div class="ms-text"><strong>Phase 2 Milestone</strong>NBA engine built. Recommender working. Agentforce configured. MMM run. n8n AI workflow live. You can advise on and demo AI personalisation from data layer to activation.</div>
+      <div class="ms-text"><strong>Phase 2 Milestone</strong>GA4 certified. Agentforce badge earned. You understand AI personalisation, the full MarTech stack, content automation, and post-cookie measurement. You have a working n8n workflow and can advise clients on AI across the marketing function with confidence.</div>
     </div>
   </div>
 
@@ -595,31 +587,32 @@
   <div class="phase-panel" id="phase-2" style="--phase-color:#1b5e20">
     <div class="phase-header">
       <span class="phase-badge" style="background:#1b5e20">PHASE 3</span>
-      <span class="phase-title">Agentic AI Builds</span>
+      <span class="phase-title">Agentic AI in Practice</span>
     </div>
-    <div class="phase-desc"><strong>Weeks 7–9 · 30 hrs total.</strong> The most technically differentiating phase. Build a ReAct agent, content production agent, CX service agent, multi-agent campaign system, and evaluation framework.</div>
+    <div class="phase-desc"><strong>Weeks 7–9 · 15 hrs total.</strong> The most differentiating phase. Move from understanding AI to designing and building agentic systems. Use Claude Code to build your first AI agents. Learn what multi-agent systems are and how they will change marketing operations. Walk away able to demo agentic AI to a client.</div>
 
     <div class="week-card" id="wk-7">
       <div class="week-top" onclick="toggleWeek('wk-7')">
         <span class="week-num" style="background:#1b5e20">WK 7</span>
-        <span class="week-title">Agentic AI Architecture + First ReAct Agent + Content Agent</span>
+        <span class="week-title">Introduction to Agentic AI — What It Is, Why It Matters, First Agent</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-7')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
           <span class="ts-pill ts-learn">2 hrs — Learn</span>
-          <span class="ts-pill ts-build">7 hrs — Build</span>
-          <span class="ts-pill ts-review">1 hr — Document</span>
+          <span class="ts-pill ts-build">2 hrs — Claude Code guided build</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>AI agent anatomy — LLM + tools + memory + planning loop. The ReAct pattern</div>
-              <div class="concept"><span class="concept-dot">·</span>Tool use in Claude API — define tools, let Claude decide when to call them</div>
-              <div class="concept"><span class="concept-dot">·</span>Content supply chain automation — brief → research → draft → brand check → output</div>
-              <div class="concept"><span class="concept-dot">·</span>Human-in-the-loop design — where approval gates belong in agentic workflows</div>
+              <div class="concept"><span class="concept-dot">·</span>What an AI agent is: LLM + tools + memory + planning loop — explained without jargon</div>
+              <div class="concept"><span class="concept-dot">·</span>The ReAct pattern: how agents reason, act, and observe — the engine behind Agentforce and Claude</div>
+              <div class="concept"><span class="concept-dot">·</span>Tool use: how you give Claude the ability to take actions (search, write, calculate, call APIs)</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentic AI use cases in marketing: research, content, personalisation, CX, campaign ops</div>
+              <div class="concept"><span class="concept-dot">·</span>Human-in-the-loop: where humans must stay in control and how to design that in</div>
             </div>
           </div>
           <div class="body-col">
@@ -627,35 +620,34 @@
             <div class="resource-list">
               <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/agents" target="_blank">
                 <span class="res-icon">🤖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Building Agentic Systems</div><div class="res-desc">Official guide: tool use, memory, subagents, human-in-the-loop patterns</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://learn.deeplearning.ai/courses/ai-agents-in-langgraph" target="_blank">
-                <span class="res-icon">🎓</span>
-                <div class="res-info"><div class="res-name">DeepLearning.AI — AI Agents in LangGraph</div><div class="res-desc">ReAct pattern, agent memory, tool use — hands-on with code</div><span class="res-tag tag-free">Free</span></div>
+                <div class="res-info"><div class="res-name">Anthropic — Building Agentic Systems</div><div class="res-desc">Official guide — tool use, memory, subagents, human-in-the-loop patterns</div><span class="res-tag tag-free">Free</span></div>
               </a>
               <a class="resource" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">
                 <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Building Effective Agents</div><div class="res-desc">Anthropic's own patterns for reliable, safe agentic AI — essential reading</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Anthropic — Building Effective Agents</div><div class="res-desc">Anthropic's own patterns for reliable, safe agentic AI — essential pre-build reading</div><span class="res-tag tag-read">Reading</span></div>
               </a>
-              <a class="resource" href="https://python.langchain.com/docs/concepts/agents/" target="_blank">
-                <span class="res-icon">🦜</span>
-                <div class="res-info"><div class="res-name">LangChain — Agent Concepts</div><div class="res-desc">Agent types, tool definitions, memory patterns — comprehensive reference</div><span class="res-tag tag-free">Free</span></div>
+              <a class="resource" href="https://claude.ai/download" target="_blank">
+                <span class="res-icon">💻</span>
+                <div class="res-info"><div class="res-name">Claude Code — Download Desktop App</div><div class="res-desc">Install Claude Code — your agentic AI development environment for this phase</div><span class="res-tag tag-tool">Free tier</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude Code Task This Week — Your First Agent</div>
+          <div class="build-text">You'll use Claude Code (no prior coding experience needed) to build a simple research agent.</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">A</span>ReAct Agent: give Claude 3 tools (web_search, calculator, write_file). Task: research competitors, calculate price gap, write brief.</div>
-            <div class="build-step"><span class="step-num">B</span>3-Step Content Agent: Research Agent → Writer Agent (3 variants) → Critic Agent (brand score). Output: production-ready copy.</div>
+            <div class="build-step"><span class="step-num">1</span>Install Claude Code. Open it and say: "Help me understand what an AI agent is. Explain it like I'm a consultant, not a developer."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude Code: "Build me a simple research agent that takes a company name and returns: a company overview, 3 key AI initiatives, and a potential Song engagement angle."</div>
+            <div class="build-step"><span class="step-num">3</span>Run it on 2–3 companies. Review the outputs. Ask Claude Code to improve the format.</div>
+            <div class="build-step"><span class="step-num">4</span>Ask Claude: "Write a 1-page explainer: What is Agentic AI and how will it change marketing operations? Written for a CMO audience."</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d1')"><span class="del-label">Working ReAct agent (Claude API + tool use)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d2')"><span class="del-label">Content production agent (3-step pipeline)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d3')"><span class="del-label">"Agentic AI for Marketing" architecture primer (client one-pager)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d1')"><span class="del-label">Working research agent (Claude Code — demo-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d2')"><span class="del-label">"What is Agentic AI?" explainer for CMO audiences</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d3')"><span class="del-label">Agentic AI use case map for marketing (your reference doc)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -667,56 +659,58 @@
     <div class="week-card" id="wk-8">
       <div class="week-top" onclick="toggleWeek('wk-8')">
         <span class="week-num" style="background:#1b5e20">WK 8</span>
-        <span class="week-title">CX Service Agent + Multi-Agent Campaign System</span>
+        <span class="week-title">Building AI Agents for Marketing & CX — Content + Service Agents</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-8')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
           <span class="ts-pill ts-learn">1 hr — Learn</span>
-          <span class="ts-pill ts-build">8 hrs — Build</span>
-          <span class="ts-pill ts-review">1 hr — Document</span>
+          <span class="ts-pill ts-build">3 hrs — Claude Code builds</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Conversational agent design — intent, slot filling, dialogue state, escalation logic</div>
-              <div class="concept"><span class="concept-dot">·</span>Tool-calling for CX agents — order lookup, account data, policy retrieval via API</div>
-              <div class="concept"><span class="concept-dot">·</span>Multi-agent orchestration — orchestrator delegating to specialist subagents</div>
-              <div class="concept"><span class="concept-dot">·</span>Agent failure modes — hallucination propagation, infinite loops, scope creep</div>
+              <div class="concept"><span class="concept-dot">·</span>Content agents: automating the brief → research → draft → brand review pipeline</div>
+              <div class="concept"><span class="concept-dot">·</span>CX service agents: intent recognition, conversation design, escalation to human</div>
+              <div class="concept"><span class="concept-dot">·</span>Agent design principles: scoping, guardrails, failure modes, human oversight</div>
+              <div class="concept"><span class="concept-dot">·</span>How Agentforce, Claude, and custom agents differ — when to build vs configure</div>
             </div>
           </div>
           <div class="body-col">
             <div class="section-label">Where to Learn</div>
             <div class="resource-list">
-              <a class="resource" href="https://docs.crewai.com/introduction" target="_blank">
-                <span class="res-icon">👥</span>
-                <div class="res-info"><div class="res-name">CrewAI — Multi-Agent Framework Docs</div><div class="res-desc">Build crews of agents with roles, goals, and task delegation</div><span class="res-tag tag-tool">Open source</span></div>
+              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Anthropic — Tool Use Guide</div><div class="res-desc">How to give Claude tools to call — the foundation of every agent you'll build</div><span class="res-tag tag-free">Free</span></div>
               </a>
-              <a class="resource" href="https://langchain-ai.github.io/langgraph/" target="_blank">
-                <span class="res-icon">🔗</span>
-                <div class="res-info"><div class="res-name">LangGraph — Agent Orchestration</div><div class="res-desc">Graph-based multi-agent control flow — most production-ready framework</div><span class="res-tag tag-tool">Open source</span></div>
+              <a class="resource" href="https://learn.deeplearning.ai/courses/ai-agents-in-langgraph" target="_blank">
+                <span class="res-icon">🎓</span>
+                <div class="res-info"><div class="res-name">DeepLearning.AI — AI Agents in LangGraph</div><div class="res-desc">Short free course. Watch/skim for conceptual grounding on agent memory and tool use.</div><span class="res-tag tag-free">Free</span></div>
               </a>
               <a class="resource" href="https://help.salesforce.com/s/articleView?id=ai.agentforce_service_agent_overview.htm" target="_blank">
                 <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Salesforce — Agentforce Service Agent Guide</div><div class="res-desc">How enterprise CX agents are configured in the SFDC ecosystem</div><span class="res-tag tag-free">Free docs</span></div>
+                <div class="res-info"><div class="res-name">Salesforce — Agentforce Service Agent Guide</div><div class="res-desc">How enterprise CX agents are configured in SFDC — useful reference for client conversations</div><span class="res-tag tag-free">Free docs</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude Code Task This Week — Two Agents</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">A</span>CX Agent: 4 intents — order status, returns, complaints, escalation. Sentiment detection → human handoff. Test 20 conversations.</div>
-            <div class="build-step"><span class="step-num">B</span>Multi-Agent Campaign System: Orchestrator → Research Agent + Copy Agent + Critique Agent → consolidated campaign pack.</div>
+            <div class="build-step"><span class="step-num">A1</span>Ask Claude Code: "Build a content agent that takes a campaign brief and produces 3 copy variants — one for email, one for social, one for display. Include a brand voice check at the end."</div>
+            <div class="build-step"><span class="step-num">A2</span>Test it with 2 different briefs. Review output quality. Iterate the prompt until it's demo-ready.</div>
+            <div class="build-step"><span class="step-num">B1</span>Ask Claude Code: "Build a simple CX service agent for a retail brand — it should handle: order status questions, returns requests, and complaints. Include sentiment detection and a human escalation trigger."</div>
+            <div class="build-step"><span class="step-num">B2</span>Test with 5 simulated customer messages. Document what it handles well and where it breaks.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d1')"><span class="del-label">CX agent prototype with KPI scorecard</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d2')"><span class="del-label">Multi-agent campaign planning system</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d3')"><span class="del-label">Architecture diagram of both agent systems</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d1')"><span class="del-label">Content agent (brief → 3 copy variants + brand check)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d2')"><span class="del-label">CX service agent prototype (retail scenario)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d3')"><span class="del-label">Agent design principles guide (your advisory reference)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -728,59 +722,57 @@
     <div class="week-card" id="wk-9">
       <div class="week-top" onclick="toggleWeek('wk-9')">
         <span class="week-num" style="background:#1b5e20">WK 9</span>
-        <span class="week-title">GenAI Creative (Multimodal) + Agent Evaluation + Governance</span>
+        <span class="week-title">Multi-Agent Systems, Process Automation & AI Governance</span>
         <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-9')">● Not Started</button>
         <span class="chevron">▶</span>
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">2 hrs — Learn</span>
-          <span class="ts-pill ts-build">6 hrs — Build</span>
-          <span class="ts-pill ts-review">2 hrs — Governance artefacts</span>
+          <span class="ts-pill ts-learn">1 hr — Learn</span>
+          <span class="ts-pill ts-build">3 hrs — Design + Claude Code</span>
+          <span class="ts-pill ts-review">1 hr — Governance artefact</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Diffusion models — enterprise-safe creative AI (Adobe Firefly)</div>
-              <div class="concept"><span class="concept-dot">·</span>Multimodal AI (Claude vision) — ad analysis, visual search, creative scoring</div>
-              <div class="concept"><span class="concept-dot">·</span>LLM evals — accuracy, faithfulness, hallucination rate, cost per output</div>
-              <div class="concept"><span class="concept-dot">·</span>Agent guardrails — prompt injection, scope limitation, output filtering</div>
+              <div class="concept"><span class="concept-dot">·</span>Multi-agent orchestration: an orchestrator agent delegating to specialist subagents</div>
+              <div class="concept"><span class="concept-dot">·</span>Process improvement with AI: how to identify which marketing processes to automate first</div>
+              <div class="concept"><span class="concept-dot">·</span>Agent failure modes: hallucination propagation, scope creep, infinite loops — how to mitigate</div>
+              <div class="concept"><span class="concept-dot">·</span>Responsible AI governance for agentic systems: guardrails, oversight, human control points</div>
+              <div class="concept"><span class="concept-dot">·</span>EU AI Act basics: what it means for marketing AI and what to tell clients</div>
             </div>
           </div>
           <div class="body-col">
             <div class="section-label">Where to Learn</div>
             <div class="resource-list">
-              <a class="resource" href="https://firefly.adobe.com" target="_blank">
-                <span class="res-icon">🔥</span>
-                <div class="res-info"><div class="res-name">Adobe Firefly — Try It Free</div><div class="res-desc">IP-indemnified enterprise creative AI. Generate images, extend, recolour.</div><span class="res-tag tag-tool">Free trial</span></div>
-              </a>
-              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/vision" target="_blank">
-                <span class="res-icon">👁️</span>
-                <div class="res-info"><div class="res-name">Anthropic — Claude Vision Guide</div><div class="res-desc">Send images to Claude for analysis — ad review, creative scoring, product tagging</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://github.com/explodinggradients/ragas" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">Ragas — RAG & LLM Evaluation Framework</div><div class="res-desc">Automated evaluation of faithfulness, answer relevance, context precision</div><span class="res-tag tag-tool">Open source</span></div>
+              <a class="resource" href="https://docs.crewai.com/introduction" target="_blank">
+                <span class="res-icon">👥</span>
+                <div class="res-info"><div class="res-name">CrewAI — Multi-Agent Framework</div><div class="res-desc">Read the intro + concepts. Understand how roles, goals, and delegation work in multi-agent systems.</div><span class="res-tag tag-tool">Open source</span></div>
               </a>
               <a class="resource" href="https://www.anthropic.com/responsible-scaling-policy" target="_blank">
                 <span class="res-icon">🛡️</span>
-                <div class="res-info"><div class="res-name">Anthropic — Responsible AI Policy</div><div class="res-desc">Anthropic's framework for safe AI — model for your own client governance work</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Anthropic — Responsible AI Policy</div><div class="res-desc">Anthropic's framework for safe AI — use as a model for client governance work</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://artificialintelligenceact.eu/the-act/" target="_blank">
+                <span class="res-icon">⚖️</span>
+                <div class="res-info"><div class="res-name">EU AI Act — Summary</div><div class="res-desc">High-risk classification, marketing AI obligations, timeline — what boards are asking in 2025</div><span class="res-tag tag-read">Reading</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude Task This Week</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">A</span>Upload 5 competitor ads to Claude Vision → analyse brand positioning, tone, CTA. Use Firefly to generate 3 counter-concept visuals.</div>
-            <div class="build-step"><span class="step-num">B</span>Eval suite for your CX agent: 20 test cases, Claude as judge. Document top 3 failure modes and mitigations.</div>
+            <div class="build-step"><span class="step-num">1</span>Ask Claude Code: "Design a multi-agent campaign planning system. Orchestrator receives the brief, then delegates to: Research Agent, Copy Agent, and Critique Agent. Show the architecture and the prompts for each agent."</div>
+            <div class="build-step"><span class="step-num">2</span>Build the orchestrator + 2 of the 3 agents using Claude Code. Test with a real campaign brief.</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Write a Responsible AI governance checklist for a marketing function deploying agentic AI — covering data, model oversight, human controls, and regulatory compliance."</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d1')"><span class="del-label">AI creative workflow blueprint</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d2')"><span class="del-label">Agent evaluation framework template</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d1')"><span class="del-label">Multi-agent campaign system (architecture + working prototype)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d2')"><span class="del-label">AI process automation opportunity map (marketing function)</span></div>
           <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d3')"><span class="del-label">Responsible AI governance checklist for marketing</span></div>
         </div>
         <div class="notes-section">
@@ -792,7 +784,7 @@
 
     <div class="milestone" style="--phase-color:#1b5e20">
       <span class="ms-icon">🎯</span>
-      <div class="ms-text"><strong>Phase 3 Milestone</strong>ReAct agent, content agent, CX agent, multi-agent campaign system, and eval framework all built. You can design, build, govern, and demo agentic AI — a capability almost no consultant at your level currently has.</div>
+      <div class="ms-text"><strong>Phase 3 Milestone</strong>Research agent, content agent, CX agent, and multi-agent campaign system built using Claude Code. You can design, demo, and explain agentic AI to any client. You have a governance framework ready for delivery. This capability is rare at consultant level in Song.</div>
     </div>
   </div>
 
@@ -802,7 +794,7 @@
       <span class="phase-badge" style="background:#bf360c">PHASE 4</span>
       <span class="phase-title">AI Strategy, Advisory & Thought Leadership</span>
     </div>
-    <div class="phase-desc"><strong>Weeks 10–12 · 30 hrs total.</strong> Shift from builder to advisor. Turn everything you've built into strategic frameworks, business cases, and a published POV. By week 12 your article is live — backed by 9 weeks of real builds.</div>
+    <div class="phase-desc"><strong>Weeks 10–12 · 15 hrs total.</strong> Convert everything you've built and learned into strategic frameworks, business cases, and a published point of view. By Week 12 your article is live, your demo is recorded, and your SME portfolio is complete. You're not just doing AI — you're advising on it.</div>
 
     <div class="week-card" id="wk-10">
       <div class="week-top" onclick="toggleWeek('wk-10')">
@@ -813,18 +805,18 @@
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">3 hrs — Research</span>
-          <span class="ts-pill ts-build">5 hrs — Framework design</span>
-          <span class="ts-pill ts-review">2 hrs — Polish artefacts</span>
+          <span class="ts-pill ts-learn">1 hr — Research</span>
+          <span class="ts-pill ts-build">3 hrs — Framework design with Claude</span>
+          <span class="ts-pill ts-review">1 hr — Polish artefacts</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>AI readiness dimensions — data, talent, technology, governance, culture</div>
-              <div class="concept"><span class="concept-dot">·</span>Build vs buy vs partner — advising a CMO on the right AI capability model</div>
-              <div class="concept"><span class="concept-dot">·</span>Agentic operating models — how AI agents change marketing org design</div>
-              <div class="concept"><span class="concept-dot">·</span>Accenture Total Enterprise Reinvention — where Song and AI fit</div>
+              <div class="concept"><span class="concept-dot">·</span>AI readiness dimensions: data quality, talent, technology stack, governance, culture</div>
+              <div class="concept"><span class="concept-dot">·</span>Build vs buy vs partner — how to advise a CMO on the right AI capability model</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentic operating models — how AI agents change marketing org design and team structure</div>
+              <div class="concept"><span class="concept-dot">·</span>CX transformation roadmaps — the Song 3-horizon model for phased AI reinvention</div>
             </div>
           </div>
           <div class="body-col">
@@ -832,35 +824,31 @@
             <div class="resource-list">
               <a class="resource" href="https://www.accenture.com/us-en/insights/song/index" target="_blank">
                 <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song — Thought Leadership Hub</div><div class="res-desc">Latest Song research on CX, marketing transformation, and AI reinvention</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.forrester.com/report/the-cx-index/RES137227" target="_blank">
-                <span class="res-icon">📈</span>
-                <div class="res-info"><div class="res-name">Forrester — Customer Experience Index</div><div class="res-desc">The framework Song uses to frame client CX ambition and maturity</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Accenture Song — Thought Leadership Hub</div><div class="res-desc">Review latest Song research on AI strategy and CX transformation — get fluent in the narrative</div><span class="res-tag tag-read">Reading</span></div>
               </a>
               <a class="resource" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">
                 <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">McKinsey — State of AI Report</div><div class="res-desc">Enterprise AI adoption benchmarks — use these numbers in client conversations</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">McKinsey — State of AI Report</div><div class="res-desc">Enterprise AI adoption benchmarks — use these numbers in client conversations and proposals</div><span class="res-tag tag-read">Reading</span></div>
               </a>
               <a class="resource" href="https://www.accenture.com/us-en/insights/technology/reinvention-in-the-age-of-generative-ai" target="_blank">
                 <span class="res-icon">🔄</span>
-                <div class="res-info"><div class="res-name">Accenture — Reinvention in the Age of GenAI</div><div class="res-desc">Total Enterprise Reinvention framework — strategic context for all Song AI work</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Accenture — Reinvention in the Age of GenAI</div><div class="res-desc">Total Enterprise Reinvention framework — the strategic context for all Song AI advisory work</div><span class="res-tag tag-read">Reading</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude Task This Week — Build Your Advisory Toolkit</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">1</span>Co-design with Claude: Marketing AI Readiness Assessment — 5 dimensions, 4 maturity levels, prioritised action plan output</div>
-            <div class="build-step"><span class="step-num">2</span>Design AI-augmented marketing team org chart: current → future with agent roles mapped in</div>
-            <div class="build-step"><span class="step-num">3</span>CX transformation roadmap template — 3-horizon model</div>
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Co-design a Marketing AI Readiness Assessment with me — 5 dimensions, 4 maturity levels, with specific diagnostic questions and a prioritised action plan output. Make it workshop-ready."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Design an AI-augmented marketing team org chart — current state vs future state with AI agents mapped in. Show which roles evolve, which are created, and which are automated."</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Create a CX transformation roadmap template using a 3-horizon model: stabilise (0–6m), differentiate (6–18m), lead (18m+). Include AI milestones for each horizon."</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d1')"><span class="del-label">Marketing AI Readiness Assessment (workshop-ready)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d2')"><span class="del-label">Agentic operating model diagram (current → future org)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d1')"><span class="del-label">Marketing AI Readiness Assessment (workshop-ready tool)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d2')"><span class="del-label">AI-augmented marketing org chart (current → future state)</span></div>
           <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d3')"><span class="del-label">CX transformation roadmap template (3-horizon)</span></div>
         </div>
         <div class="notes-section">
@@ -879,18 +867,18 @@
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">2 hrs — Learn</span>
-          <span class="ts-pill ts-build">6 hrs — Build models</span>
-          <span class="ts-pill ts-review">2 hrs — Role-play practice</span>
+          <span class="ts-pill ts-learn">1 hr — Learn</span>
+          <span class="ts-pill ts-build">3 hrs — Build models + role-play</span>
+          <span class="ts-pill ts-review">1 hr — Polish deliverables</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Learn</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>AI value quantification — content cost reduction, campaign velocity, ROAS lift benchmarks</div>
-              <div class="concept"><span class="concept-dot">·</span>AI project costs — API costs, engineering, data prep, change management</div>
-              <div class="concept"><span class="concept-dot">·</span>Risk-adjusted ROI — hallucination, adoption, and regulatory risk</div>
-              <div class="concept"><span class="concept-dot">·</span>EU AI Act, algorithmic bias, AI liability — what boards are asking in 2025</div>
+              <div class="concept"><span class="concept-dot">·</span>AI value quantification: content cost reduction, campaign velocity gains, ROAS lift benchmarks</div>
+              <div class="concept"><span class="concept-dot">·</span>AI project costs: API costs, engineering, data prep, change management — what clients underestimate</div>
+              <div class="concept"><span class="concept-dot">·</span>Risk-adjusted ROI: how to account for hallucination risk, adoption risk, and regulatory exposure</div>
+              <div class="concept"><span class="concept-dot">·</span>EU AI Act and UK GDPR — the 5 things every Song consultant needs to know in 2025</div>
             </div>
           </div>
           <div class="body-col">
@@ -898,32 +886,32 @@
             <div class="resource-list">
               <a class="resource" href="https://www.forrester.com/research/total-economic-impact/" target="_blank">
                 <span class="res-icon">💰</span>
-                <div class="res-info"><div class="res-name">Forrester TEI — Total Economic Impact</div><div class="res-desc">The methodology Accenture uses for technology business cases</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://artificialintelligenceact.eu/the-act/" target="_blank">
-                <span class="res-icon">⚖️</span>
-                <div class="res-info"><div class="res-name">EU AI Act — Full Text Summary</div><div class="res-desc">High-risk classification, obligations for marketing AI, timeline</div><span class="res-tag tag-read">Reading</span></div>
+                <div class="res-info"><div class="res-name">Forrester TEI — Total Economic Impact Methodology</div><div class="res-desc">The business case framework Accenture uses — understand the components before building your model</div><span class="res-tag tag-read">Reading</span></div>
               </a>
               <a class="resource" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/" target="_blank">
                 <span class="res-icon">🇬🇧</span>
-                <div class="res-info"><div class="res-name">ICO — AI & UK GDPR Guidance</div><div class="res-desc">Practical guidance on AI and data protection for UK client engagements</div><span class="res-tag tag-free">Free</span></div>
+                <div class="res-info"><div class="res-name">ICO — AI & UK GDPR Guidance</div><div class="res-desc">Practical guidance for UK client engagements — what data protection means for marketing AI</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://artificialintelligenceact.eu/the-act/" target="_blank">
+                <span class="res-icon">⚖️</span>
+                <div class="res-info"><div class="res-name">EU AI Act — Summary</div><div class="res-desc">Marketing AI risk classifications, obligations and timelines — what boards are asking about</div><span class="res-tag tag-read">Reading</span></div>
               </a>
             </div>
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-label">🤖 Claude Task This Week — Business Case + Role-Play</div>
           <div class="build-steps">
-            <div class="build-step"><span class="step-num">1</span>Google Sheets ROI model: inputs (headcount, volume, API costs) → outputs (savings, payback, 3-yr NPV). Claude Code populates benchmarks.</div>
-            <div class="build-step"><span class="step-num">2</span>Responsible AI governance framework (data, model, output, human oversight layers)</div>
-            <div class="build-step"><span class="step-num">3</span>Role-play with Claude: "You are a sceptical CFO. Challenge my £500k AI business case." Iterate 5 rounds.</div>
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Build me an AI ROI model template for a marketing AI project. Include: cost inputs (API, engineering, change mgmt), benefit inputs (headcount savings, campaign velocity, ROAS lift), and a 3-year NPV output. Format it as a Google Sheets-ready table."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Write a Responsible AI governance framework for a marketing function — covering data handling, model oversight, human approval gates, and regulatory compliance. Make it board-presentable."</div>
+            <div class="build-step"><span class="step-num">3</span>Role-play with Claude: Say "You are a sceptical CFO. I'm presenting a £500k AI marketing project. Challenge me." Do 5 rounds of Q&A. Note the questions you struggled to answer — those are your knowledge gaps to close.</div>
           </div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Deliverables</div>
           <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d1')"><span class="del-label">AI ROI model template (Google Sheets, proposal-ready)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d2')"><span class="del-label">Responsible AI governance framework for marketing</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d3')"><span class="del-label">AI Innovation Workshop agenda (90-min, client-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d2')"><span class="del-label">Responsible AI governance framework (board-presentable)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d3')"><span class="del-label">CFO challenge Q&A log + your refined answers (personal prep doc)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -941,18 +929,19 @@
       </div>
       <div class="week-body">
         <div class="time-split">
-          <span class="ts-pill ts-learn">1 hr — Advisory skills</span>
-          <span class="ts-pill ts-build">6 hrs — Write + publish</span>
-          <span class="ts-pill ts-review">3 hrs — Workshop + demo prep</span>
+          <span class="ts-pill ts-learn">0.5 hrs — Final prep</span>
+          <span class="ts-pill ts-build">3 hrs — Write + publish</span>
+          <span class="ts-pill ts-review">1.5 hrs — Demo + portfolio</span>
         </div>
         <div class="body-grid">
           <div class="body-col">
             <div class="section-label">What You'll Do</div>
             <div class="concept-list">
-              <div class="concept"><span class="concept-dot">·</span>Write your POV article — 700–900 words, backed by your 9 weeks of real builds</div>
-              <div class="concept"><span class="concept-dot">·</span>Record a 90-second Loom demo of your best prototype</div>
-              <div class="concept"><span class="concept-dot">·</span>Publish on LinkedIn + share on Accenture internal hub</div>
-              <div class="concept"><span class="concept-dot">·</span>Complete programme review and plan for continued learning</div>
+              <div class="concept"><span class="concept-dot">·</span>Write your POV article — 700–900 words, backed by 9 weeks of real builds and learning</div>
+              <div class="concept"><span class="concept-dot">·</span>Record a 90-second Loom demo of your best agent prototype</div>
+              <div class="concept"><span class="concept-dot">·</span>Publish on LinkedIn and share on the Accenture Song internal hub</div>
+              <div class="concept"><span class="concept-dot">·</span>Compile your full SME portfolio — all deliverables from 12 weeks in one place</div>
+              <div class="concept"><span class="concept-dot">·</span>Plan your next 90 days — certifications to pursue, clients to apply knowledge on</div>
             </div>
           </div>
           <div class="body-col">
@@ -960,11 +949,11 @@
             <div class="resource-list">
               <a class="resource" href="https://www.linkedin.com/article/new" target="_blank">
                 <span class="res-icon">💼</span>
-                <div class="res-info"><div class="res-name">LinkedIn — Publish an Article</div><div class="res-desc">Primary external publishing platform — visible to clients and peers</div><span class="res-tag tag-free">Free</span></div>
+                <div class="res-info"><div class="res-name">LinkedIn — Publish an Article</div><div class="res-desc">Primary external publishing platform — visible to clients, partners, and future employers</div><span class="res-tag tag-free">Free</span></div>
               </a>
               <a class="resource" href="https://www.loom.com" target="_blank">
                 <span class="res-icon">🎥</span>
-                <div class="res-info"><div class="res-name">Loom — Screen + Camera Recording</div><div class="res-desc">Record your agent demo. 90 seconds is worth more than any slide.</div><span class="res-tag tag-free">Free tier</span></div>
+                <div class="res-info"><div class="res-name">Loom — Screen + Camera Recording</div><div class="res-desc">Record your agent demo. 90 seconds of demo is worth more than any slide deck.</div><span class="res-tag tag-free">Free tier</span></div>
               </a>
               <a class="resource" href="https://in.accenture.com/accenturesong/" target="_blank">
                 <span class="res-icon">🎵</span>
@@ -974,15 +963,15 @@
           </div>
         </div>
         <div class="build-section">
-          <div class="build-label">🔨 Suggested POV Title</div>
-          <div class="build-text">"Agentic AI will change the role of the CMO — here is what I learned from building it."<br><br>Back every claim with something you built, measured, or broke. Use Claude Code to research, structure, and refine. The Loom demo is your proof of work.</div>
+          <div class="build-label">🤖 Claude Task This Week — Your POV Article</div>
+          <div class="build-text">Ask Claude: "Help me write a LinkedIn article titled: 'Agentic AI will change the role of the CMO — here is what I learned from building it.' I want it to be 700–900 words, backed by specific things I built and learned, and written in my own voice. Here are my notes from 12 weeks of learning: [paste your key notes here]."<br><br>Iterate with Claude until it sounds like you. Then publish it — your proof of work is in every paragraph.</div>
         </div>
         <div class="deliverables-section">
           <div class="section-label">Final Deliverables</div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d1')"><span class="del-label">✅ Published POV article (LinkedIn + Accenture hub)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d2')"><span class="del-label">✅ Loom demo video of best prototype</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d3')"><span class="del-label">Complete SME portfolio compiled (all 12 weeks)</span></div>
-          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d4')"><span class="del-label">Continued learning plan (next 90 days)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d1')"><span class="del-label">✅ Published POV article (LinkedIn + Accenture Song hub)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d2')"><span class="del-label">✅ Loom demo video of best agent prototype</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d3')"><span class="del-label">Complete SME portfolio (all 12 weeks of deliverables in one folder)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d4')"><span class="del-label">Next 90-day learning plan (certifications, client applications, stretch goals)</span></div>
         </div>
         <div class="notes-section">
           <div class="section-label">My Notes</div>
@@ -993,14 +982,283 @@
 
     <div class="milestone" style="--phase-color:#bf360c">
       <span class="ms-icon">🏆</span>
-      <div class="ms-text"><strong>Programme Complete — AI & Agentic AI SME</strong>Semantic search · RAG pipeline · Event trigger · NBA engine · Recommender · Agentforce agent · n8n workflow · ReAct agent · Content agent · CX agent · Multi-agent system · Eval framework · GA4 certified · Trailhead badges · Published POV + demo video. You can design, build, govern, and advise on agentic AI for marketing.</div>
+      <div class="ms-text"><strong>Programme Complete — Agentic AI SME</strong>GA4 certified · Agentforce + Trailhead badges · GenAI FAQ + pitch narratives · CDP comparison + discovery guides · NBA framework · MarTech advisory toolkit · AI content supply chain · n8n workflow · Research agent · Content agent · CX agent · Multi-agent campaign system · AI Readiness Assessment · ROI model · Governance framework · Published POV + demo video. You can design, build, advise on, and demonstrate agentic AI for marketing — backed by real proof of work.</div>
+    </div>
+  </div>
+
+
+  <!-- ═══ PHASE 5 ═══ -->
+  <div class="phase-panel" id="phase-4" style="--phase-color:#6d1f7e">
+    <div class="phase-header">
+      <span class="phase-badge" style="background:#6d1f7e">PHASE 5</span>
+      <span class="phase-title">Commerce & Sales Reinvention</span>
+    </div>
+    <div class="phase-desc"><strong>Weeks 13–16 · 20 hrs total.</strong> Apply your AI foundations to the full B2B Sales and B2C Commerce lifecycle. Understand how Song drives growth across pre-purchase, moment of truth, and post-purchase — and how AI and agentic systems are reinventing every stage. By Week 16 you have a complete Song SME portfolio spanning AI, Commerce, and Sales.</div>
+
+    <div class="week-card" id="wk-13">
+      <div class="week-top" onclick="toggleWeek('wk-13')">
+        <span class="week-num" style="background:#6d1f7e">WK 13</span>
+        <span class="week-title">B2B Sales AI — Route to Market, Lead Generation & Sales Reinvention</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-13')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">2 hrs — Claude co-creation</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>B2B Sales lifecycle: pre-purchase (Route to Market, Lead Gen, Salesforce effectiveness) → Moment of Truth (Sales Excellence, Lead to Order, CPQ, Deal Execution) → Post-Purchase (Customer Success, Cross-sell, Renewal)</div>
+              <div class="concept"><span class="concept-dot">·</span>Sales Reinvention: how AI-led service transformation orchestrates interactions and personalises frontline decision-making in real time</div>
+              <div class="concept"><span class="concept-dot">·</span>AI for B2B prospecting: signal detection, intent data, AI-generated outreach at scale</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentforce SDR Agent — how it qualifies leads, books meetings, and hands off to human reps</div>
+              <div class="concept"><span class="concept-dot">·</span>Revenue-as-a-Service and Inside Sales models — how Song helps clients reduce cost to sell</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/agentforce-for-sales" target="_blank">
+                <span class="res-icon">🤖</span>
+                <div class="res-info"><div class="res-name">Trailhead — Agentforce for Sales</div><div class="res-desc">How Agentforce SDR and Coach agents work — lead qualification, outreach, pipeline coaching</div><span class="res-tag tag-cert">Free badge</span></div>
+              </a>
+              <a class="resource" href="https://www.salesforce.com/products/sales-cloud/resources/sales-ai/" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">Salesforce — AI for Sales Overview</div><div class="res-desc">Einstein AI features across Sales Cloud: forecasting, deal scoring, conversation intelligence</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/ai-in-b2b-sales" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">McKinsey — AI in B2B Sales</div><div class="res-desc">How AI is reshaping B2B sales motions — use case benchmarks and adoption patterns</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.gartner.com/en/sales/topics/ai-in-sales" target="_blank">
+                <span class="res-icon">📈</span>
+                <div class="res-info"><div class="res-name">Gartner — AI in Sales Research</div><div class="res-desc">Analyst perspective on AI adoption in B2B sales — useful for client conversations</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🤖 Claude Task This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Map out an AI-powered B2B sales lifecycle for an enterprise software company — from lead generation to renewal. Show where AI agents, automation, and human reps each play a role."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Design an Agentforce SDR Agent use case brief — including: target segment, agent capabilities, handoff criteria to human reps, KPIs, and expected ROI."</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "What are the top 5 questions a CMO or CRO would ask before investing in AI Sales Reinvention? Write my advisory responses to each."</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk13-d1')"><span class="del-label">AI-powered B2B sales lifecycle map (pre-purchase → post-purchase)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk13-d2')"><span class="del-label">Agentforce SDR use case brief (client-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk13-d3')"><span class="del-label">✅ Agentforce for Sales Trailhead badge earned</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk13-notes')"></textarea>
+          <div class="save-note">Notes auto-save in your browser. Use Export to back up across devices.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-card" id="wk-14">
+      <div class="week-top" onclick="toggleWeek('wk-14')">
+        <span class="week-num" style="background:#6d1f7e">WK 14</span>
+        <span class="week-title">B2C Commerce — Digital Shelf, eRGM & AI-Powered Commerce Execution</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-14')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">2 hrs — Claude co-creation</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>B2C Commerce lifecycle: Design Experiences → Build Platforms → Digital Shelf → Commerce Content → eRGM → Loyalty → Platform Monetisation</div>
+              <div class="concept"><span class="concept-dot">·</span>eCommerce Revenue Growth Management (eRGM): AI-driven pricing, inventory optimisation, and margin management</div>
+              <div class="concept"><span class="concept-dot">·</span>Digital shelf strategy: how brands win on Amazon, retailer.com, and D2C channels using AI</div>
+              <div class="concept"><span class="concept-dot">·</span>Commerce content at scale: product descriptions, A+ content, personalised pages — where GenAI plays</div>
+              <div class="concept"><span class="concept-dot">·</span>Composable commerce platforms: headless architecture, Salesforce Commerce Cloud, Adobe Commerce</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/commerce-cloud-basics" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">Trailhead — Salesforce Commerce Cloud Basics</div><div class="res-desc">Commerce Cloud architecture, B2C storefront setup, Einstein AI features</div><span class="res-tag tag-cert">Free badge</span></div>
+              </a>
+              <a class="resource" href="https://experienceleague.adobe.com/en/docs/commerce-admin/start/about" target="_blank">
+                <span class="res-icon">🔴</span>
+                <div class="res-info"><div class="res-name">Adobe Commerce — Getting Started</div><div class="res-desc">Adobe's composable commerce platform — AI features, merchandising, and personalisation</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-to-win-in-digital-commerce" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">McKinsey — How to Win in Digital Commerce</div><div class="res-desc">eRGM, digital shelf, and commerce growth levers — benchmarks for client conversations</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🤖 Claude Task This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Design an eRGM framework for a consumer goods brand selling on Amazon and D2C. Include: pricing strategy, inventory signals, promotional triggers, and how AI automates each lever."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Write a digital shelf audit framework — 10 criteria a Song consultant should evaluate when assessing a client's commerce execution maturity."</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Create a B2C Commerce AI opportunity map — showing where GenAI and agentic AI add value across the pre-purchase, moment of truth, and post-purchase journey."</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk14-d1')"><span class="del-label">eRGM framework for consumer goods (AI-powered pricing & inventory)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk14-d2')"><span class="del-label">Digital shelf audit framework (10-criteria maturity assessment)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk14-d3')"><span class="del-label">✅ Salesforce Commerce Cloud Trailhead badge earned</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk14-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-card" id="wk-15">
+      <div class="week-top" onclick="toggleWeek('wk-15')">
+        <span class="week-num" style="background:#6d1f7e">WK 15</span>
+        <span class="week-title">Post-Purchase AI — Loyalty, Customer Success, Retention & Agentic Commerce</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-15')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">2 hrs — Claude co-creation</span>
+          <span class="ts-pill ts-review">1 hr — Deliverable</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>B2C post-purchase: Loyalty Management, Ratings & Reviews, Platform Monetisation — how AI re-imagines each</div>
+              <div class="concept"><span class="concept-dot">·</span>B2B post-purchase: Customer Success, Cross-sell/Upsell, Renewal/Retention — AI-driven expansion revenue</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentic Loyalty: AI agents that manage programme design, reward redemption, and churn prevention in real time</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentic Commerce: full-stack agentic support — from strategy to platform to being found by AI agents</div>
+              <div class="concept"><span class="concept-dot">·</span>Commerce media and data monetisation: how platforms generate incremental revenue from first-party data</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/service-cloud-for-customer-success" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">Trailhead — Customer Success & Retention</div><div class="res-desc">AI-powered customer success: health scores, churn prediction, automated expansion plays</div><span class="res-tag tag-cert">Free badge</span></div>
+              </a>
+              <a class="resource" href="https://www.forrester.com/report/loyalty-programme-best-practices/" target="_blank">
+                <span class="res-icon">📈</span>
+                <div class="res-info"><div class="res-name">Forrester — Loyalty Programme Best Practices</div><div class="res-desc">What makes loyalty programmes work in 2025 — AI personalisation, emotional loyalty, programme design</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.accenture.com/us-en/insights/song/index" target="_blank">
+                <span class="res-icon">🎵</span>
+                <div class="res-info"><div class="res-name">Accenture Song — Agentic Commerce Insights</div><div class="res-desc">Song's thinking on agentic commerce — being found, chosen, and transacted by AI agents</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🤖 Claude Task This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Ask Claude: "Design an AI-powered loyalty programme strategy for a retail brand — including: programme structure, AI personalisation of rewards, churn prediction triggers, and agentic redemption experience."</div>
+            <div class="build-step"><span class="step-num">2</span>Ask Claude: "Build a B2B Customer Success AI playbook — covering: health score inputs, early churn warning signals, AI-recommended interventions, and cross-sell opportunity identification."</div>
+            <div class="build-step"><span class="step-num">3</span>Ask Claude: "Explain Agentic Commerce to a CMO in 1 page — what it means for how their brand gets found, chosen, and transacted by AI agents in the next 2 years."</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk15-d1')"><span class="del-label">AI-powered loyalty programme strategy (retail, workshop-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk15-d2')"><span class="del-label">B2B Customer Success AI playbook</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk15-d3')"><span class="del-label">"Agentic Commerce" explainer for CMO audiences</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk16-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-card" id="wk-16">
+      <div class="week-top" onclick="toggleWeek('wk-16')">
+        <span class="week-num" style="background:#6d1f7e">WK 16</span>
+        <span class="week-title">Commerce & Sales Strategy + Full SME Portfolio + Updated POV</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-16')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">0.5 hrs — Synthesis</span>
+          <span class="ts-pill ts-build">3 hrs — Strategy assets + POV</span>
+          <span class="ts-pill ts-review">1.5 hrs — Portfolio + publish</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Do</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Build a Commerce & Sales operating model advisory framework — the Song lens on reinvention</div>
+              <div class="concept"><span class="concept-dot">·</span>Write a client pitch for a combined AI + Commerce + Sales transformation engagement</div>
+              <div class="concept"><span class="concept-dot">·</span>Update your POV article to incorporate Commerce & Sales — now backed by 16 weeks of learning</div>
+              <div class="concept"><span class="concept-dot">·</span>Compile your complete SME portfolio: all 16 weeks of deliverables in one place</div>
+              <div class="concept"><span class="concept-dot">·</span>Plan your next 90 days — certifications, client applications, stretch goals</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Tools & Resources</div>
+            <div class="resource-list">
+              <a class="resource" href="https://www.linkedin.com/article/new" target="_blank">
+                <span class="res-icon">💼</span>
+                <div class="res-info"><div class="res-name">LinkedIn — Publish or Update Your Article</div><div class="res-desc">Update or publish a new POV now spanning AI, B2B Sales, and B2C Commerce</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.loom.com" target="_blank">
+                <span class="res-icon">🎥</span>
+                <div class="res-info"><div class="res-name">Loom — Update Your Demo</div><div class="res-desc">Record a 90-second updated demo — show an agent relevant to Commerce or Sales</div><span class="res-tag tag-free">Free tier</span></div>
+              </a>
+              <a class="resource" href="https://in.accenture.com/accenturesong/" target="_blank">
+                <span class="res-icon">🎵</span>
+                <div class="res-info"><div class="res-name">Accenture Song Internal Hub</div><div class="res-desc">Share your full portfolio internally — visibility with Song leadership and staffing teams</div><span class="res-tag tag-free">Internal</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🤖 Claude Task This Week — Final POV</div>
+          <div class="build-text">Ask Claude: "Help me update my LinkedIn article to now cover Data & AI across Commerce and Sales — not just marketing. I've spent 4 more weeks learning B2B Sales Reinvention, B2C Commerce, eRGM, Loyalty, and Agentic Commerce. Here are my new notes: [paste notes]. Weave these into my existing article and strengthen the conclusion."<br><br>Your POV now spans the full Song Commerce & Sales mission — backed by 16 weeks of proof.</div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Final Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk16-d1')"><span class="del-label">Commerce & Sales operating model framework (advisory asset)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk16-d2')"><span class="del-label">✅ Updated POV article published (AI + Commerce + Sales)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk16-d3')"><span class="del-label">✅ Full SME portfolio compiled (all 16 weeks)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk16-d4')"><span class="del-label">Next 90-day learning plan (certifications, client applications)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk16-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone" style="--phase-color:#6d1f7e">
+      <span class="ms-icon">🏆</span>
+      <div class="ms-text"><strong>Programme Complete — Data & AI for Commerce and Sales SME</strong>AI & Agentic AI foundations · Accenture Song service lines · MarTech advisory · GA4 certified · Agentforce + Trailhead badges · AI personalisation & NBA · n8n workflow · Claude Code agents · Multi-agent systems · AI strategy frameworks · ROI models · B2B Sales Reinvention · Agentforce SDR · B2C Commerce & eRGM · Digital shelf · Loyalty & Customer Success · Agentic Commerce · Published POV + demo video. You can advise on and demonstrate Data & AI across the full Commerce and Sales lifecycle.</div>
     </div>
   </div>
 
 </div>
 
 <footer>
-  Built for <strong>Accenture Song — The AI Reinvention Learning Programme</strong> · Progress saves in your browser · Export/Import to move between devices ·
+  Built for <strong>Accenture Song — Data & AI for Commerce and Sales</strong> · 16 Weeks to Song SME · Progress saves in your browser · Export/Import to move between devices ·
   <a href="https://docs.anthropic.com" target="_blank">Anthropic Docs</a> ·
   <a href="https://trailhead.salesforce.com" target="_blank">Trailhead</a> ·
   <a href="https://experienceleague.adobe.com" target="_blank">Experience League</a>
@@ -1045,7 +1303,7 @@ function saveDel(el, key) {
 function updateStats() {
   const s = getState();
   let done = 0, inprog = 0, dels = 0;
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 16; i++) {
     const st = s['wk-' + i + '_status'] || 'todo';
     if (st === 'done') done++;
     if (st === 'inprog') inprog++;
@@ -1054,7 +1312,7 @@ function updateStats() {
   document.getElementById('stat-done').textContent = done;
   document.getElementById('stat-inprog').textContent = inprog;
   document.getElementById('stat-del').textContent = dels;
-  const pct = Math.round((done / 12) * 100);
+  const pct = Math.round((done / 16) * 100);
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('pct-label').textContent = pct + '%';
 }
@@ -1104,7 +1362,7 @@ function showToast(msg) {
 // ── Init ─────────────────────────────────────────────
 function init() {
   const s = getState();
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 16; i++) {
     const id = 'wk-' + i;
     const card = document.getElementById(id);
     if (!card) continue;
