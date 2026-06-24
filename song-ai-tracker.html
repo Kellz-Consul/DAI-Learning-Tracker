@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Reinvention Programme: 12 Weeks to Agentic AI SME</title>
+<style>
+  :root {
+    --bg: #f8f9fb;
+    --card: #ffffff;
+    --border: #e2e6ea;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --accent: #1a237e;
+    --ph1: #1565c0;
+    --ph2: #6a1b9a;
+    --ph3: #1b5e20;
+    --ph4: #bf360c;
+    --done: #2e7d32;
+    --inprog: #e65100;
+    --todo: #9e9e9e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+
+  /* ── Header ── */
+  .hero { background: linear-gradient(135deg, #0d1b2a 0%, #1a237e 60%, #283593 100%); color: white; padding: 32px 24px 24px; }
+  .hero h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; }
+  .hero p { font-size: 13px; color: #b3c9e8; margin-top: 4px; }
+  .stats-row { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .stat-box { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 16px; min-width: 100px; }
+  .stat-box .val { font-size: 22px; font-weight: 800; color: #82b1ff; }
+  .stat-box .lbl { font-size: 11px; color: #b3c9e8; margin-top: 2px; }
+  .progress-wrap { margin-top: 20px; }
+  .progress-label { font-size: 12px; color: #b3c9e8; margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .progress-bar { height: 8px; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, #82b1ff, #69f0ae); border-radius: 4px; transition: width 0.4s ease; }
+
+  /* ── Nav ── */
+  .nav { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; gap: 4px; overflow-x: auto; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .nav-tab { padding: 14px 16px; font-size: 13px; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; color: var(--muted); white-space: nowrap; transition: all 0.15s; }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Main layout ── */
+  .main { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+  .phase-panel { display: none; }
+  .phase-panel.active { display: block; }
+  .phase-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .phase-badge { font-size: 11px; font-weight: 700; color: white; border-radius: 5px; padding: 3px 10px; }
+  .phase-title { font-size: 18px; font-weight: 800; }
+  .phase-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 15px; }
+
+  /* ── Week cards ── */
+  .week-card { background: white; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.15s; }
+  .week-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .week-top { display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; }
+  .week-num { font-size: 11px; font-weight: 700; color: white; border-radius: 5px; padding: 3px 9px; white-space: nowrap; }
+  .week-title { font-weight: 700; font-size: 14px; flex: 1; }
+  .status-btn { font-size: 11px; font-weight: 700; border: none; border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .status-todo { background: #f5f5f5; color: var(--todo); }
+  .status-inprog { background: #fff3e0; color: var(--inprog); }
+  .status-done { background: #e8f5e9; color: var(--done); }
+  .chevron { font-size: 12px; color: #ccc; transition: transform 0.2s; }
+  .week-card.open .chevron { transform: rotate(90deg); }
+  .week-body { display: none; border-top: 1px solid var(--border); }
+  .week-card.open .week-body { display: block; }
+
+  /* ── Body sections ── */
+  .body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  @media (max-width: 640px) { .body-grid { grid-template-columns: 1fr; } }
+  .body-col { padding: 16px; }
+  .body-col + .body-col { border-left: 1px solid var(--border); }
+  .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+
+  /* ── Concepts list ── */
+  .concept-list { display: flex; flex-direction: column; gap: 5px; }
+  .concept { font-size: 12.5px; line-height: 1.45; display: flex; gap: 7px; color: #333; }
+  .concept-dot { color: var(--phase-color); flex-shrink: 0; font-size: 15px; line-height: 1.2; }
+
+  /* ── Resources ── */
+  .resource-list { display: flex; flex-direction: column; gap: 6px; }
+  .resource { display: flex; align-items: flex-start; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 7px; text-decoration: none; color: inherit; transition: background 0.12s; }
+  .resource:hover { background: #f5f7ff; }
+  .res-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .res-info { flex: 1; }
+  .res-name { font-size: 12px; font-weight: 600; color: var(--accent); }
+  .res-desc { font-size: 11px; color: var(--muted); margin-top: 1px; line-height: 1.4; }
+  .res-tag { font-size: 10px; font-weight: 600; border-radius: 3px; padding: 1px 5px; white-space: nowrap; margin-top: 2px; display: inline-block; }
+  .tag-free { background: #e8f5e9; color: #2e7d32; }
+  .tag-cert { background: #e3f2fd; color: #1565c0; }
+  .tag-tool { background: #f3e5f5; color: #6a1b9a; }
+  .tag-read { background: #fff3e0; color: #e65100; }
+
+  /* ── Build box ── */
+  .build-section { background: #0d1b2a; padding: 14px 16px; border-top: 1px solid var(--border); }
+  .build-label { font-size: 10px; font-weight: 700; color: #82b1ff; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .build-text { font-size: 12.5px; color: #b3c9e8; line-height: 1.6; }
+  .build-steps { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+  .build-step { display: flex; gap: 8px; font-size: 12px; color: #90caf9; }
+  .step-num { background: rgba(130,177,255,0.15); color: #82b1ff; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── Deliverables ── */
+  .deliverables-section { padding: 14px 16px; border-top: 1px solid var(--border); background: #fafafa; }
+  .deliverable-item { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 8px; }
+  .deliverable-item:last-child { margin-bottom: 0; }
+  .del-check { width: 17px; height: 17px; accent-color: var(--done); cursor: pointer; flex-shrink: 0; margin-top: 1px; }
+  .del-label { font-size: 12.5px; line-height: 1.4; }
+  .del-label.checked { text-decoration: line-through; color: var(--muted); }
+
+  /* ── Notes ── */
+  .notes-section { padding: 14px 16px; border-top: 1px solid var(--border); }
+  .notes-textarea { width: 100%; border: 1px solid var(--border); border-radius: 7px; padding: 9px 11px; font-size: 12.5px; font-family: inherit; color: var(--text); resize: vertical; min-height: 70px; outline: none; background: white; }
+  .notes-textarea:focus { border-color: #82b1ff; box-shadow: 0 0 0 2px rgba(130,177,255,0.15); }
+  .save-note { margin-top: 6px; font-size: 11px; color: var(--muted); font-style: italic; }
+
+  /* ── Time split pills ── */
+  .time-split { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 16px; background: #f9fafb; border-top: 1px solid var(--border); }
+  .ts-pill { font-size: 11px; font-weight: 600; border-radius: 4px; padding: 3px 9px; }
+  .ts-learn { background: #e3f2fd; color: #1565c0; }
+  .ts-build { background: #e8f5e9; color: #1b5e20; }
+  .ts-review { background: #f3e5f5; color: #6a1b9a; }
+
+  /* ── Milestone ── */
+  .milestone { display: flex; gap: 12px; background: white; border: 2px solid var(--phase-color, #1a237e); border-radius: 12px; padding: 16px; margin-top: 8px; }
+  .ms-icon { font-size: 22px; flex-shrink: 0; }
+  .ms-text { font-size: 13px; line-height: 1.6; }
+  .ms-text strong { display: block; font-size: 14px; margin-bottom: 4px; }
+
+  /* ── Footer ── */
+  footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<div class="hero">
+  <h1>🤖 The AI Reinvention Learning Programme</h1>
+  <p>12 Weeks to Agentic AI SME · Data · GenAI · Agentic AI · Strategy & Advisory · Accenture Song · 10 hrs/week</p>
+  <div class="stats-row">
+    <div class="stat-box"><div class="val" id="stat-done">0</div><div class="lbl">Weeks Complete</div></div>
+    <div class="stat-box"><div class="val" id="stat-inprog">0</div><div class="lbl">In Progress</div></div>
+    <div class="stat-box"><div class="val" id="stat-del">0</div><div class="lbl">Deliverables Done</div></div>
+    <div class="stat-box"><div class="val">120</div><div class="lbl">Total Hours</div></div>
+    <div class="stat-box"><div class="val">8+</div><div class="lbl">AI Prototypes</div></div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Overall Progress</span><span id="pct-label">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     NAV TABS
+══════════════════════════════════════ -->
+<div class="nav">
+  <div class="nav-tab active" onclick="showPhase(0)">📊 Phase 1: AI-Ready Data</div>
+  <div class="nav-tab" onclick="showPhase(1)">🎯 Phase 2: AI Personalisation</div>
+  <div class="nav-tab" onclick="showPhase(2)">🤖 Phase 3: Agentic AI Builds</div>
+  <div class="nav-tab" onclick="showPhase(3)">🚀 Phase 4: Strategy & Advisory</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<div class="main">
+
+  <!-- ═══ PHASE 1 ═══ -->
+  <div class="phase-panel active" id="phase-0" style="--phase-color:#1565c0">
+    <div class="phase-header">
+      <span class="phase-badge" style="background:#1565c0">PHASE 1</span>
+      <span class="phase-title">AI-Ready Data Foundations</span>
+    </div>
+    <div class="phase-desc">
+      <strong>Weeks 1–3 · 30 hrs total.</strong> Build the AI data foundation. By end of week 3 you have a working semantic search engine, a RAG pipeline, and a real-time AI event trigger — and you understand the data architecture that powers every AI system in the programme.
+    </div>
+
+    <!-- Week 1 -->
+    <div class="week-card" id="wk-1">
+      <div class="week-top" onclick="toggleWeek('wk-1')">
+        <span class="week-num" style="background:#1565c0">WK 1</span>
+        <span class="week-title">AI Data Fundamentals + Embeddings + Vector Stores</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-1')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">4 hrs — Learn</span>
+          <span class="ts-pill ts-build">5 hrs — Build</span>
+          <span class="ts-pill ts-review">1 hr — Document</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>How LLMs consume customer data — tokens, context windows, structured vs unstructured</div>
+              <div class="concept"><span class="concept-dot">·</span>Embeddings — turning text, products, and behaviours into vectors AI can reason over</div>
+              <div class="concept"><span class="concept-dot">·</span>Vector databases (Pinecone, pgvector, Weaviate) — the memory layer of every AI app</div>
+              <div class="concept"><span class="concept-dot">·</span>Semantic search vs keyword search — why this changes product discovery entirely</div>
+              <div class="concept"><span class="concept-dot">·</span>CRM vs CDP vs DMP — the landscape map every Song client asks about</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://docs.anthropic.com/en/docs/intro-to-claude" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Anthropic — Intro to Claude</div><div class="res-desc">Claude API fundamentals, prompt engineering guide, token concepts</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://docs.pinecone.io/guides/get-started/quickstart" target="_blank">
+                <span class="res-icon">🔷</span>
+                <div class="res-info"><div class="res-name">Pinecone — Vector DB Quickstart</div><div class="res-desc">Set up your first vector index and run semantic queries</div><span class="res-tag tag-free">Free tier</span></div>
+              </a>
+              <a class="resource" href="https://www.youtube.com/watch?v=ztBJqzBU5kc" target="_blank">
+                <span class="res-icon">▶️</span>
+                <div class="res-info"><div class="res-name">Andrej Karpathy — Intro to LLMs (1hr)</div><div class="res-desc">Best conceptual explanation of how LLMs work — non-technical enough for client conversations</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://learn.deeplearning.ai/courses/building-systems-with-chatgpt" target="_blank">
+                <span class="res-icon">🎓</span>
+                <div class="res-info"><div class="res-name">DeepLearning.AI — Building Systems with LLMs</div><div class="res-desc">Short practical course on chaining LLM calls — perfect Week 1 foundation</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-text">Semantic Product Search Engine using Claude API + Pinecone</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Set up Claude API (console.anthropic.com) + Pinecone free account</div>
+            <div class="build-step"><span class="step-num">2</span>Embed a 50-product catalogue into Pinecone using text-embedding-ada or Claude</div>
+            <div class="build-step"><span class="step-num">3</span>Build a query function: "gift for a mum who loves gardening" → top 5 products, no keywords</div>
+            <div class="build-step"><span class="step-num">4</span>Layer a Claude API call to generate a personalised product pitch for the top result</div>
+            <div class="build-step"><span class="step-num">5</span>Test with 10 queries — document where it works and where it breaks</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d1')"><span class="del-label">Working semantic search engine (demo-able to a client)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d2')"><span class="del-label">"AI-Ready Data" explainer one-pager (client-facing language)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk1-d3')"><span class="del-label">CDP landscape cheat sheet (CRM vs CDP vs DMP vs Warehouse)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk1-notes')"></textarea>
+          <div class="save-note">Notes auto-save in your browser.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="week-card" id="wk-2">
+      <div class="week-top" onclick="toggleWeek('wk-2')">
+        <span class="week-num" style="background:#1565c0">WK 2</span>
+        <span class="week-title">RAG Pipelines + Identity Resolution + Real-Time AI Triggers</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-2')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">3 hrs — Learn</span>
+          <span class="ts-pill ts-build">6 hrs — Build</span>
+          <span class="ts-pill ts-review">1 hr — Document</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>RAG architecture — retriever, context injection, generator. The enterprise AI standard</div>
+              <div class="concept"><span class="concept-dot">·</span>Chunking strategies, reranking, hybrid search — what separates good RAG from bad RAG</div>
+              <div class="concept"><span class="concept-dot">·</span>ML identity resolution — probabilistic matching, entity linking, deduplication</div>
+              <div class="concept"><span class="concept-dot">·</span>Event-driven AI — how real-time behavioural signals trigger AI decisions</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://learn.deeplearning.ai/courses/building-applications-vector-databases" target="_blank">
+                <span class="res-icon">🎓</span>
+                <div class="res-info"><div class="res-name">DeepLearning.AI — Building with Vector DBs</div><div class="res-desc">RAG fundamentals, chunking strategies, retrieval patterns — hands-on</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://python.langchain.com/docs/tutorials/rag/" target="_blank">
+                <span class="res-icon">🦜</span>
+                <div class="res-info"><div class="res-name">LangChain — RAG Tutorial</div><div class="res-desc">Step-by-step: load doc → chunk → embed → retrieve → generate</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Anthropic — Tool Use Guide</div><div class="res-desc">How to give Claude tools to call — foundation of agentic AI</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">AWS Clean Rooms — Overview</div><div class="res-desc">Data clean rooms for privacy-safe identity resolution and measurement</div><span class="res-tag tag-free">Free docs</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week — Two Builds</div>
+          <div class="build-text">Build A: Full RAG Pipeline | Build B: Real-Time AI Event Trigger</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">A1</span>Ingest brand guidelines PDF → chunk → embed → store in Pinecone</div>
+            <div class="build-step"><span class="step-num">A2</span>Query via Claude API: "Write product description in our brand voice." Compare with/without RAG.</div>
+            <div class="build-step"><span class="step-num">B1</span>Simulate cart abandonment event stream in Python (generate random events)</div>
+            <div class="build-step"><span class="step-num">B2</span>On each event → call Claude API → generate personalised recovery message. Log 20 outputs.</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d1')"><span class="del-label">Working RAG pipeline on brand/product data (demo-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d2')"><span class="del-label">Real-time AI event trigger system (cart abandonment prototype)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk2-d3')"><span class="del-label">Identity resolution explainer diagram (client-ready)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk2-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 3 -->
+    <div class="week-card" id="wk-3">
+      <div class="week-top" onclick="toggleWeek('wk-3')">
+        <span class="week-num" style="background:#1565c0">WK 3</span>
+        <span class="week-title">CDP Platforms (SFDC + Adobe) + GA4 Certification + AI Governance</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-3')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">4 hrs — Platform study</span>
+          <span class="ts-pill ts-build">4 hrs — Hands-on + cert</span>
+          <span class="ts-pill ts-review">2 hrs — Governance artefact</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Salesforce Data Cloud — data streams, unified profiles, connection to Agentforce and Einstein</div>
+              <div class="concept"><span class="concept-dot">·</span>Adobe Real-Time CDP + AEP — XDM schema, identity namespaces, Sensei AI layer</div>
+              <div class="concept"><span class="concept-dot">·</span>When to recommend SFDC vs Adobe — the 8-criteria selection framework</div>
+              <div class="concept"><span class="concept-dot">·</span>AI data governance — consent as AI input, data minimisation, EU AI Act basics</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/get-started-with-data-cloud" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">Salesforce Trailhead — Data Cloud Basics</div><div class="res-desc">Official trail covering unified profiles, data streams, identity resolution</div><span class="res-tag tag-cert">Badge</span></div>
+              </a>
+              <a class="resource" href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/home" target="_blank">
+                <span class="res-icon">🔴</span>
+                <div class="res-info"><div class="res-name">Adobe Experience League — AEP Foundations</div><div class="res-desc">XDM schema, Real-Time CDP architecture, identity namespaces</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://skillshop.exceedlms.com/student/path/2938" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">Google Skillshop — GA4 Certification</div><div class="res-desc">Sit and pass in one 4-hr session. Immediate, widely recognised credential.</div><span class="res-tag tag-cert">Free cert</span></div>
+              </a>
+              <a class="resource" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank">
+                <span class="res-icon">⚖️</span>
+                <div class="res-info"><div class="res-name">EU AI Act — Official Summary</div><div class="res-desc">High-risk AI classification, what it means for marketing AI systems</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Actions This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Complete "Data Cloud Basics" Trailhead trail — earn the badge</div>
+            <div class="build-step"><span class="step-num">2</span>Complete AEP Foundations on Experience League</div>
+            <div class="build-step"><span class="step-num">3</span>Sit and pass GA4 certification on Skillshop (block a full 4-hr session)</div>
+            <div class="build-step"><span class="step-num">4</span>Use Claude to draft an AI Data Handling Policy for a marketing function</div>
+            <div class="build-step"><span class="step-num">5</span>Build CDP vendor comparison one-pager (SFDC vs Adobe, 8 criteria)</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d1')"><span class="del-label">✅ GA4 Certification passed (add to LinkedIn)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d2')"><span class="del-label">✅ Salesforce Data Cloud Trailhead badge earned</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d3')"><span class="del-label">CDP vendor comparison one-pager (SFDC vs Adobe)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk3-d4')"><span class="del-label">AI Data Governance policy template</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk3-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone" style="--phase-color:#1565c0">
+      <span class="ms-icon">🎯</span>
+      <div class="ms-text"><strong>Phase 1 Milestone</strong>GA4 certified. Trailhead badge earned. You have a working semantic search engine, RAG pipeline, and event trigger system. You understand the data architecture AI runs on — and can explain it credibly to a CMO or solutions architect.</div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 2 ═══ -->
+  <div class="phase-panel" id="phase-1" style="--phase-color:#6a1b9a">
+    <div class="phase-header">
+      <span class="phase-badge" style="background:#6a1b9a">PHASE 2</span>
+      <span class="phase-title">AI-Native Personalisation & MarTech</span>
+    </div>
+    <div class="phase-desc"><strong>Weeks 4–6 · 30 hrs total.</strong> Build a recommendation engine, an NBA model, configure Salesforce Agentforce, run an MMM analysis, and wire up a full AI marketing workflow in n8n. By week 6 you can advise on and demo AI personalisation end-to-end.</div>
+
+    <!-- Week 4 -->
+    <div class="week-card" id="wk-4">
+      <div class="week-top" onclick="toggleWeek('wk-4')">
+        <span class="week-num" style="background:#6a1b9a">WK 4</span>
+        <span class="week-title">ML Personalisation + Recommendation Engines + NBA Models</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-4')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">3 hrs — Learn</span>
+          <span class="ts-pill ts-build">6 hrs — Build</span>
+          <span class="ts-pill ts-review">1 hr — Document</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Personalisation maturity: rules → segments → collaborative filtering → RL</div>
+              <div class="concept"><span class="concept-dot">·</span>Recommendation engines — matrix factorisation, item-item, user-item collaborative filtering</div>
+              <div class="concept"><span class="concept-dot">·</span>Bandit algorithms — exploration vs exploitation, the engine behind "you might also like"</div>
+              <div class="concept"><span class="concept-dot">·</span>Next-Best-Action — propensity scoring, eligibility rules, arbitration, fatigue management</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://surprise.readthedocs.io/en/stable/getting_started.html" target="_blank">
+                <span class="res-icon">⭐</span>
+                <div class="res-info"><div class="res-name">Surprise Library — RecSys Getting Started</div><div class="res-desc">Python recommendation system library — collaborative filtering in 20 lines of code</div><span class="res-tag tag-tool">Tool</span></div>
+              </a>
+              <a class="resource" href="https://learn.deeplearning.ai/courses/machine-learning-in-production" target="_blank">
+                <span class="res-icon">🎓</span>
+                <div class="res-info"><div class="res-name">DeepLearning.AI — ML in Production</div><div class="res-desc">Moving from model to real-world deployment — crucial for NBA systems</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">Kaggle — Intro to Machine Learning</div><div class="res-desc">Propensity models, feature engineering — practical ML for personalisation</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.pega.com/insights/articles/what-is-next-best-action-marketing" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Pega — What is Next-Best-Action?</div><div class="res-desc">Enterprise NBA framework — how Accenture clients implement it in practice</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week — Two Builds</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">A</span>Collaborative filtering recommender (Surprise lib, retail dataset) → Claude API generates personalised copy for top recommendation per user</div>
+            <div class="build-step"><span class="step-num">B</span>NBA engine: customer attributes → score 3 propensity models → apply business rules (eligibility, fatigue, channel) → rank actions → Claude narrates the decision</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d1')"><span class="del-label">Working recommender prototype with Claude copy layer</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d2')"><span class="del-label">NBA engine prototype (Python, rule + model pipeline)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk4-d3')"><span class="del-label">Personalisation maturity model diagram (strategic artefact)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk4-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 5 -->
+    <div class="week-card" id="wk-5">
+      <div class="week-top" onclick="toggleWeek('wk-5')">
+        <span class="week-num" style="background:#6a1b9a">WK 5</span>
+        <span class="week-title">Salesforce Agentforce + Adobe Sensei + AI in the MarTech Stack</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-5')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">3 hrs — Platform study</span>
+          <span class="ts-pill ts-build">5 hrs — Hands-on config</span>
+          <span class="ts-pill ts-review">2 hrs — Artefact creation</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Agentforce — Service, SDR, Commerce agent types; architecture; Data Cloud connection</div>
+              <div class="concept"><span class="concept-dot">·</span>Adobe Sensei GenAI — AI across AEP, Journey Optimizer, Target, predictive segments</div>
+              <div class="concept"><span class="concept-dot">·</span>AI content generation inside Journey Optimizer — subject line and body optimisation</div>
+              <div class="concept"><span class="concept-dot">·</span>Braze, Dynamic Yield, Optimizely — AI personalisation in best-of-breed stacks</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/build-and-deploy-agentforce-agents" target="_blank">
+                <span class="res-icon">🤖</span>
+                <div class="res-info"><div class="res-name">Trailhead — Build & Deploy Agentforce Agents</div><div class="res-desc">Official trail: configure agents, knowledge bases, intents, escalation rules</div><span class="res-tag tag-cert">Badge</span></div>
+              </a>
+              <a class="resource" href="https://experienceleague.adobe.com/en/docs/journey-optimizer/using/get-started/get-started" target="_blank">
+                <span class="res-icon">🔴</span>
+                <div class="res-info"><div class="res-name">Adobe Experience League — Journey Optimizer</div><div class="res-desc">AI content generation, real-time journey triggers, Sensei integration</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.braze.com/resources/articles/braze-ai-overview" target="_blank">
+                <span class="res-icon">💬</span>
+                <div class="res-info"><div class="res-name">Braze — AI & Personalisation Overview</div><div class="res-desc">How Braze uses AI for send-time optimisation, predictive churn, and content recommendations</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Actions This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Complete Agentforce Trailhead trail (earn badge)</div>
+            <div class="build-step"><span class="step-num">2</span>In SFDC dev org: configure Service Agent — knowledge base, 3 intents, escalation rules. Test 10 conversations.</div>
+            <div class="build-step"><span class="step-num">3</span>Complete AEP AI/ML features module on Experience League</div>
+            <div class="build-step"><span class="step-num">4</span>Build "AI in the Adobe Stack" annotated diagram</div>
+            <div class="build-step"><span class="step-num">5</span>Write Agentforce use case brief for one industry (retail or FS)</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d1')"><span class="del-label">✅ Agentforce Trailhead badge earned</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d2')"><span class="del-label">Configured Agentforce Service Agent (live in dev org)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d3')"><span class="del-label">"AI in Adobe Stack" annotated diagram</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk5-d4')"><span class="del-label">Agentforce use case brief (industry-specific, pitch-ready)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk5-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 6 -->
+    <div class="week-card" id="wk-6">
+      <div class="week-top" onclick="toggleWeek('wk-6')">
+        <span class="week-num" style="background:#6a1b9a">WK 6</span>
+        <span class="week-title">Marketing Mix Modelling + Causal AI + n8n AI Automation</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-6')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">7 hrs — Build</span>
+          <span class="ts-pill ts-review">1 hr — Document</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Why ML-based MMM is replacing last-click attribution post-cookie</div>
+              <div class="concept"><span class="concept-dot">·</span>Causal AI and incrementality — true lift vs correlation</div>
+              <div class="concept"><span class="concept-dot">·</span>n8n vs Make vs Zapier — no-code agentic automation for marketing workflows</div>
+              <div class="concept"><span class="concept-dot">·</span>Chaining LLM calls + APIs into autonomous marketing pipelines</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://github.com/facebookexperimental/Robyn" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">Meta Robyn — Open Source MMM (GitHub)</div><div class="res-desc">Run on their sample dataset. Generate budget allocation curves. Free, real outputs.</div><span class="res-tag tag-tool">Open source</span></div>
+              </a>
+              <a class="resource" href="https://github.com/google/meridian" target="_blank">
+                <span class="res-icon">🔵</span>
+                <div class="res-info"><div class="res-name">Google Meridian — MMM Framework (GitHub)</div><div class="res-desc">Google's open-source Bayesian MMM — growing enterprise adoption in 2025</div><span class="res-tag tag-tool">Open source</span></div>
+              </a>
+              <a class="resource" href="https://docs.n8n.io/getting-started/quickstart/" target="_blank">
+                <span class="res-icon">⚡</span>
+                <div class="res-info"><div class="res-name">n8n — Quickstart Guide</div><div class="res-desc">Build your first workflow in 20 minutes. Free self-hosted or n8n.cloud trial.</div><span class="res-tag tag-tool">Free tier</span></div>
+              </a>
+              <a class="resource" href="https://www.northbeam.io/blog/marketing-mix-modeling" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Northbeam — MMM Explained for Marketers</div><div class="res-desc">Business-language explanation of MMM — use this to frame the client conversation</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week — Two Builds</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">A</span>Run Meta Robyn on their sample dataset. Generate budget allocation output. Use Claude to write the CMO narrative from the model outputs.</div>
+            <div class="build-step"><span class="step-num">B</span>n8n workflow: new CRM lead triggers → Claude API scores and categorises → generates personalised email → logs to Google Sheet → Slack alert. Fully autonomous loop.</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d1')"><span class="del-label">MMM analysis run + CMO narrative brief (post-cookie measurement one-pager)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d2')"><span class="del-label">Working n8n AI marketing workflow (demo-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk6-d3')"><span class="del-label">Phase 2 portfolio summary (all 3 weeks, all builds)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk6-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone" style="--phase-color:#6a1b9a">
+      <span class="ms-icon">🎯</span>
+      <div class="ms-text"><strong>Phase 2 Milestone</strong>NBA engine built. Recommender working. Agentforce configured. MMM run. n8n AI workflow live. You can advise on and demo AI personalisation from data layer to activation — and show a fully autonomous marketing workflow.</div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 3 ═══ -->
+  <div class="phase-panel" id="phase-2" style="--phase-color:#1b5e20">
+    <div class="phase-header">
+      <span class="phase-badge" style="background:#1b5e20">PHASE 3</span>
+      <span class="phase-title">Agentic AI Builds</span>
+    </div>
+    <div class="phase-desc"><strong>Weeks 7–9 · 30 hrs total.</strong> The most technically differentiating phase. Build a ReAct agent, content production agent, CX service agent, multi-agent campaign system, and evaluation framework. By week 9 you are one of very few consultants who has actually built multi-agent AI.</div>
+
+    <!-- Week 7 -->
+    <div class="week-card" id="wk-7">
+      <div class="week-top" onclick="toggleWeek('wk-7')">
+        <span class="week-num" style="background:#1b5e20">WK 7</span>
+        <span class="week-title">Agentic AI Architecture + First ReAct Agent + Content Agent</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-7')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">7 hrs — Build</span>
+          <span class="ts-pill ts-review">1 hr — Document</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>AI agent anatomy — LLM + tools + memory + planning loop. The ReAct (Reason+Act) pattern</div>
+              <div class="concept"><span class="concept-dot">·</span>Tool use in Claude API — define tools, let Claude decide when to call them</div>
+              <div class="concept"><span class="concept-dot">·</span>Content supply chain automation — brief → research → draft → brand check → output</div>
+              <div class="concept"><span class="concept-dot">·</span>Human-in-the-loop design — where approval gates belong in agentic workflows</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/agents" target="_blank">
+                <span class="res-icon">🤖</span>
+                <div class="res-info"><div class="res-name">Anthropic — Building Agentic Systems</div><div class="res-desc">Official guide: tool use, memory, subagents, human-in-the-loop patterns</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://learn.deeplearning.ai/courses/ai-agents-in-langgraph" target="_blank">
+                <span class="res-icon">🎓</span>
+                <div class="res-info"><div class="res-name">DeepLearning.AI — AI Agents in LangGraph</div><div class="res-desc">ReAct pattern, agent memory, tool use — hands-on with code</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">
+                <span class="res-icon">📖</span>
+                <div class="res-info"><div class="res-name">Anthropic — Building Effective Agents (Blog)</div><div class="res-desc">Anthropic's own patterns for reliable, safe agentic AI — essential reading</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://python.langchain.com/docs/concepts/agents/" target="_blank">
+                <span class="res-icon">🦜</span>
+                <div class="res-info"><div class="res-name">LangChain — Agent Concepts</div><div class="res-desc">Agent types, tool definitions, memory patterns — comprehensive reference</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week — Two Agents</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">A</span>ReAct Agent: give Claude 3 tools (web_search, calculator, write_file). Task: "Research 3 competitor prices, calculate our gap, write a brief." Watch it reason and act.</div>
+            <div class="build-step"><span class="step-num">B</span>3-Step Content Agent: Research Agent (brand + product facts) → Writer Agent (3 variants) → Critic Agent (brand score + select best). Test with 5 product briefs. Output: production-ready copy.</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d1')"><span class="del-label">Working ReAct agent (Claude API + tool use)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d2')"><span class="del-label">Content production agent (3-step pipeline)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk7-d3')"><span class="del-label">"Agentic AI for Marketing" architecture primer (client one-pager)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk7-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 8 -->
+    <div class="week-card" id="wk-8">
+      <div class="week-top" onclick="toggleWeek('wk-8')">
+        <span class="week-num" style="background:#1b5e20">WK 8</span>
+        <span class="week-title">CX Service Agent + Multi-Agent Campaign System</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-8')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">1 hr — Learn</span>
+          <span class="ts-pill ts-build">8 hrs — Build</span>
+          <span class="ts-pill ts-review">1 hr — Document</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Conversational agent design — intent, slot filling, dialogue state, escalation logic</div>
+              <div class="concept"><span class="concept-dot">·</span>Tool-calling for CX agents — order lookup, account data, policy retrieval via API</div>
+              <div class="concept"><span class="concept-dot">·</span>Multi-agent orchestration — orchestrator delegating to specialist subagents</div>
+              <div class="concept"><span class="concept-dot">·</span>Agent failure modes — hallucination propagation, infinite loops, scope creep</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://docs.crewai.com/introduction" target="_blank">
+                <span class="res-icon">👥</span>
+                <div class="res-info"><div class="res-name">CrewAI — Multi-Agent Framework Docs</div><div class="res-desc">Build crews of agents with roles, goals, and task delegation — used widely in enterprise</div><span class="res-tag tag-tool">Open source</span></div>
+              </a>
+              <a class="resource" href="https://langchain-ai.github.io/langgraph/" target="_blank">
+                <span class="res-icon">🔗</span>
+                <div class="res-info"><div class="res-name">LangGraph — Agent Orchestration</div><div class="res-desc">Graph-based multi-agent control flow — the most production-ready orchestration framework</div><span class="res-tag tag-tool">Open source</span></div>
+              </a>
+              <a class="resource" href="https://help.salesforce.com/s/articleView?id=ai.agentforce_service_agent_overview.htm" target="_blank">
+                <span class="res-icon">☁️</span>
+                <div class="res-info"><div class="res-name">Salesforce — Agentforce Service Agent Guide</div><div class="res-desc">How enterprise CX agents are configured and deployed in the SFDC ecosystem</div><span class="res-tag tag-free">Free docs</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week — Two Agents</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">A</span>CX Agent (Python + Claude API): 4 intents — order status, returns, complaints, escalation. Mock orders API. Sentiment detection → human handoff. Test 20 conversations. Log KPIs.</div>
+            <div class="build-step"><span class="step-num">B</span>Multi-Agent Campaign System: Orchestrator receives brief → Research Agent (competitor analysis) + Copy Agent (3 variants) + Critique Agent (brand + legal review) → consolidated campaign pack.</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d1')"><span class="del-label">CX agent prototype with KPI scorecard (resolution rate, escalation rate)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d2')"><span class="del-label">Multi-agent campaign planning system (working prototype)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk8-d3')"><span class="del-label">Architecture diagram of both agent systems</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk8-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 9 -->
+    <div class="week-card" id="wk-9">
+      <div class="week-top" onclick="toggleWeek('wk-9')">
+        <span class="week-num" style="background:#1b5e20">WK 9</span>
+        <span class="week-title">GenAI Creative (Multimodal) + Agent Evaluation + Governance</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-9')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">6 hrs — Build</span>
+          <span class="ts-pill ts-review">2 hrs — Governance artefacts</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Diffusion models — how image generation works; enterprise-safe creative AI (Adobe Firefly)</div>
+              <div class="concept"><span class="concept-dot">·</span>Multimodal AI (Claude vision) — ad analysis, visual search, creative scoring</div>
+              <div class="concept"><span class="concept-dot">·</span>LLM evals — accuracy, faithfulness, hallucination rate, cost per output</div>
+              <div class="concept"><span class="concept-dot">·</span>Agent guardrails — prompt injection, scope limitation, output filtering</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://firefly.adobe.com" target="_blank">
+                <span class="res-icon">🔥</span>
+                <div class="res-info"><div class="res-name">Adobe Firefly — Try It Free</div><div class="res-desc">IP-indemnified enterprise creative AI. Generate images, remove backgrounds, extend images.</div><span class="res-tag tag-tool">Free trial</span></div>
+              </a>
+              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/vision" target="_blank">
+                <span class="res-icon">👁️</span>
+                <div class="res-info"><div class="res-name">Anthropic — Claude Vision Guide</div><div class="res-desc">Send images to Claude for analysis — product tagging, ad review, creative scoring</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://github.com/explodinggradients/ragas" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">Ragas — RAG & LLM Evaluation Framework</div><div class="res-desc">Automated evaluation of faithfulness, answer relevance, context precision</div><span class="res-tag tag-tool">Open source</span></div>
+              </a>
+              <a class="resource" href="https://www.anthropic.com/responsible-scaling-policy" target="_blank">
+                <span class="res-icon">🛡️</span>
+                <div class="res-info"><div class="res-name">Anthropic — Responsible AI Policy</div><div class="res-desc">Anthropic's framework for safe AI — model for your own client governance work</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">A</span>Multimodal: Upload 5 competitor ads to Claude Vision → analyse brand positioning, tone, CTA. Use Firefly to generate 3 counter-concept visuals. Document the AI creative process.</div>
+            <div class="build-step"><span class="step-num">B</span>Eval suite for your CX agent: 20 test cases, scored on resolution accuracy, brand tone, escalation. Claude acts as the judge. Document top 3 failure modes and mitigations.</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d1')"><span class="del-label">AI creative workflow blueprint (brief → AI → human gate → output)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d2')"><span class="del-label">Agent evaluation framework template (20-case test suite)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk9-d3')"><span class="del-label">Responsible AI governance checklist for marketing</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk9-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone" style="--phase-color:#1b5e20">
+      <span class="ms-icon">🎯</span>
+      <div class="ms-text"><strong>Phase 3 Milestone</strong>ReAct agent, content agent, CX agent, multi-agent campaign system, and eval framework all built. You can design, build, govern, and demo agentic AI — a capability almost no consultant at your level currently has.</div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 4 ═══ -->
+  <div class="phase-panel" id="phase-3" style="--phase-color:#bf360c">
+    <div class="phase-header">
+      <span class="phase-badge" style="background:#bf360c">PHASE 4</span>
+      <span class="phase-title">AI Strategy, Advisory & Thought Leadership</span>
+    </div>
+    <div class="phase-desc"><strong>Weeks 10–12 · 30 hrs total.</strong> Shift from builder to advisor. Turn everything you've built into strategic frameworks, business cases, and a published POV. By week 12 your article is live — backed by 9 weeks of real builds.</div>
+
+    <!-- Week 10 -->
+    <div class="week-card" id="wk-10">
+      <div class="week-top" onclick="toggleWeek('wk-10')">
+        <span class="week-num" style="background:#bf360c">WK 10</span>
+        <span class="week-title">AI Strategy Frameworks + Readiness Assessment + Agentic Operating Models</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-10')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">3 hrs — Research</span>
+          <span class="ts-pill ts-build">5 hrs — Framework design</span>
+          <span class="ts-pill ts-review">2 hrs — Polish artefacts</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>AI readiness dimensions — data, talent, technology, governance, culture</div>
+              <div class="concept"><span class="concept-dot">·</span>Build vs buy vs partner — advising a CMO on the right AI capability model</div>
+              <div class="concept"><span class="concept-dot">·</span>Agentic operating models — how AI agents change marketing org design and team structure</div>
+              <div class="concept"><span class="concept-dot">·</span>Accenture Total Enterprise Reinvention — where Song and AI fit within it</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://www.accenture.com/us-en/insights/song/index" target="_blank">
+                <span class="res-icon">🎵</span>
+                <div class="res-info"><div class="res-name">Accenture Song — Thought Leadership Hub</div><div class="res-desc">Latest Song research on CX, marketing transformation, and AI reinvention</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.forrester.com/report/the-cx-index/RES137227" target="_blank">
+                <span class="res-icon">📈</span>
+                <div class="res-info"><div class="res-name">Forrester — Customer Experience Index</div><div class="res-desc">The framework Song uses to frame client CX ambition and maturity</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">
+                <span class="res-icon">📊</span>
+                <div class="res-info"><div class="res-name">McKinsey — State of AI Report (annual)</div><div class="res-desc">Enterprise AI adoption benchmarks — use these numbers in client conversations</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://www.accenture.com/us-en/insights/technology/reinvention-in-the-age-of-generative-ai" target="_blank">
+                <span class="res-icon">🔄</span>
+                <div class="res-info"><div class="res-name">Accenture — Reinvention in the Age of GenAI</div><div class="res-desc">Total Enterprise Reinvention framework — the strategic context for all Song AI work</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Co-design with Claude: "Marketing AI Readiness Assessment" — 5 dimensions, 4 maturity levels. Test on a fictional client. Produces a prioritised action plan.</div>
+            <div class="build-step"><span class="step-num">2</span>Design "AI-augmented marketing team" org chart: current → future state with agent roles. Identify 3 automated, 3 transformed, 2 new roles created.</div>
+            <div class="build-step"><span class="step-num">3</span>CX transformation roadmap template — 3-horizon model (quick wins / capability build / long-term).</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d1')"><span class="del-label">Marketing AI Readiness Assessment (workshop-ready, 5 dimensions)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d2')"><span class="del-label">Agentic operating model diagram (current → future org)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk10-d3')"><span class="del-label">CX transformation roadmap template (3-horizon)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk10-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 11 -->
+    <div class="week-card" id="wk-11">
+      <div class="week-top" onclick="toggleWeek('wk-11')">
+        <span class="week-num" style="background:#bf360c">WK 11</span>
+        <span class="week-title">AI Business Case + ROI Model + Regulation + Advisory Role-Play</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-11')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">2 hrs — Learn</span>
+          <span class="ts-pill ts-build">6 hrs — Build models</span>
+          <span class="ts-pill ts-review">2 hrs — Role-play practice</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Learn</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>AI value quantification — content cost reduction, campaign velocity, ROAS lift benchmarks</div>
+              <div class="concept"><span class="concept-dot">·</span>AI project costs — API costs, engineering, data prep, change management, ops</div>
+              <div class="concept"><span class="concept-dot">·</span>Risk-adjusted ROI — factoring hallucination, adoption, and regulatory risk</div>
+              <div class="concept"><span class="concept-dot">·</span>EU AI Act, algorithmic bias, AI liability — what boards are asking about in 2025</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Where to Learn</div>
+            <div class="resource-list">
+              <a class="resource" href="https://www.forrester.com/research/total-economic-impact/" target="_blank">
+                <span class="res-icon">💰</span>
+                <div class="res-info"><div class="res-name">Forrester TEI — Total Economic Impact</div><div class="res-desc">The methodology Accenture uses for technology business cases — learn the structure</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://artificialintelligenceact.eu/the-act/" target="_blank">
+                <span class="res-icon">⚖️</span>
+                <div class="res-info"><div class="res-name">EU AI Act — Full Text Summary</div><div class="res-desc">High-risk classification, obligations for marketing AI systems, timeline</div><span class="res-tag tag-read">Reading</span></div>
+              </a>
+              <a class="resource" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/" target="_blank">
+                <span class="res-icon">🇬🇧</span>
+                <div class="res-info"><div class="res-name">ICO — AI & UK GDPR Guidance</div><div class="res-desc">Practical guidance on AI and data protection for UK-based client engagements</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Build This Week</div>
+          <div class="build-steps">
+            <div class="build-step"><span class="step-num">1</span>Google Sheets ROI model for agentic AI content deployment: inputs (headcount, volume, API costs) → outputs (savings, payback period, 3-yr NPV). Claude Code populates benchmarks.</div>
+            <div class="build-step"><span class="step-num">2</span>Responsible AI governance framework (data layer, model layer, output layer, human oversight).</div>
+            <div class="build-step"><span class="step-num">3</span>Role-play with Claude: "You are a sceptical CFO. Challenge my £500k AI business case." Iterate 5 rounds until your answers hold under pressure.</div>
+          </div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d1')"><span class="del-label">AI ROI model template (Google Sheets, proposal-ready)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d2')"><span class="del-label">Responsible AI governance framework for marketing</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk11-d3')"><span class="del-label">AI Innovation Workshop agenda (90-min, client-ready)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk11-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 12 -->
+    <div class="week-card" id="wk-12">
+      <div class="week-top" onclick="toggleWeek('wk-12')">
+        <span class="week-num" style="background:#bf360c">WK 12</span>
+        <span class="week-title">Publish Your POV + Launch Your AI SME Profile</span>
+        <button class="status-btn status-todo" onclick="cycleStatus(event,'wk-12')">● Not Started</button>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="week-body">
+        <div class="time-split">
+          <span class="ts-pill ts-learn">1 hr — Advisory skills</span>
+          <span class="ts-pill ts-build">6 hrs — Write + publish</span>
+          <span class="ts-pill ts-review">3 hrs — Workshop + demo prep</span>
+        </div>
+        <div class="body-grid">
+          <div class="body-col">
+            <div class="section-label">What You'll Do</div>
+            <div class="concept-list">
+              <div class="concept"><span class="concept-dot">·</span>Write your POV article — 700–900 words, backed by your 9 weeks of real builds</div>
+              <div class="concept"><span class="concept-dot">·</span>Record a 90-second Loom demo of your best prototype to embed in the article</div>
+              <div class="concept"><span class="concept-dot">·</span>Publish on LinkedIn + share on Accenture internal hub</div>
+              <div class="concept"><span class="concept-dot">·</span>Complete programme review — gap assessment, plan for continued learning</div>
+            </div>
+          </div>
+          <div class="body-col">
+            <div class="section-label">Tools & Resources</div>
+            <div class="resource-list">
+              <a class="resource" href="https://www.linkedin.com/article/new" target="_blank">
+                <span class="res-icon">💼</span>
+                <div class="res-info"><div class="res-name">LinkedIn — Publish an Article</div><div class="res-desc">Your primary external publishing platform — directly visible to clients and peers</div><span class="res-tag tag-free">Free</span></div>
+              </a>
+              <a class="resource" href="https://www.loom.com" target="_blank">
+                <span class="res-icon">🎥</span>
+                <div class="res-info"><div class="res-name">Loom — Screen + Camera Recording</div><div class="res-desc">Record your agent demo. A 90-second video is worth more than any slide.</div><span class="res-tag tag-free">Free tier</span></div>
+              </a>
+              <a class="resource" href="https://in.accenture.com/accenturesong/" target="_blank">
+                <span class="res-icon">🎵</span>
+                <div class="res-info"><div class="res-name">Accenture Song Internal Hub</div><div class="res-desc">Share internally — gets you visibility with Song leadership and project staffing teams</div><span class="res-tag tag-free">Internal</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="build-section">
+          <div class="build-label">🔨 Suggested POV Title</div>
+          <div class="build-text">"Agentic AI will change the role of the CMO — here is what I learned from building it."<br><br>Back every claim with something you built, measured, or broke over the past 11 weeks. Use Claude Code to research, structure, and refine the draft. The Loom demo is your proof of work — it makes the article uniquely credible.</div>
+        </div>
+        <div class="deliverables-section">
+          <div class="section-label">Final Deliverables</div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d1')"><span class="del-label">✅ Published POV article (LinkedIn + Accenture hub)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d2')"><span class="del-label">✅ Loom demo video of best prototype (embedded in article)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d3')"><span class="del-label">Complete SME portfolio compiled (all 12 weeks of artefacts)</span></div>
+          <div class="deliverable-item"><input type="checkbox" class="del-check" onchange="saveDel(this,'wk12-d4')"><span class="del-label">Continued learning plan (next 90 days)</span></div>
+        </div>
+        <div class="notes-section">
+          <div class="section-label">My Notes</div>
+          <textarea class="notes-textarea" placeholder="Add your notes, reflections, or blockers here..." oninput="saveNote(this,'wk12-notes')"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone" style="--phase-color:#bf360c">
+      <span class="ms-icon">🏆</span>
+      <div class="ms-text"><strong>Programme Complete — AI & Agentic AI SME</strong>Semantic search engine · RAG pipeline · Event trigger · NBA engine · Recommender · Agentforce agent · n8n workflow · ReAct agent · Content agent · CX agent · Multi-agent system · Eval framework · GA4 certified · Trailhead badges · Published POV + demo video. You can design, build, govern, and advise on agentic AI for marketing — a position almost no one at your level currently holds within Accenture Song.</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  Built for <strong>Accenture Song Data & AI SME Track</strong> · Progress saves automatically in your browser ·
+  <a href="https://docs.anthropic.com" target="_blank">Anthropic Docs</a> ·
+  <a href="https://trailhead.salesforce.com" target="_blank">Trailhead</a> ·
+  <a href="https://experienceleague.adobe.com" target="_blank">Experience League</a>
+</footer>
+
+<script>
+// ── State ──────────────────────────────────────────────
+const STATUS = ['todo','inprog','done'];
+const STATUS_LABELS = { todo: '● Not Started', inprog: '◑ In Progress', done: '✓ Complete' };
+const STATUS_CLASSES = { todo: 'status-todo', inprog: 'status-inprog', done: 'status-done' };
+
+function getState() {
+  try { return JSON.parse(localStorage.getItem('song_tracker') || '{}'); } catch { return {}; }
+}
+function setState(s) { localStorage.setItem('song_tracker', JSON.stringify(s)); }
+
+// ── Week toggle ────────────────────────────────────────
+function toggleWeek(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+// ── Status cycle ───────────────────────────────────────
+function cycleStatus(e, id) {
+  e.stopPropagation();
+  const btn = e.target;
+  const s = getState();
+  const cur = s[id + '_status'] || 'todo';
+  const next = STATUS[(STATUS.indexOf(cur) + 1) % STATUS.length];
+  s[id + '_status'] = next;
+  setState(s);
+  applyStatus(btn, next);
+  updateStats();
+}
+function applyStatus(btn, status) {
+  btn.className = 'status-btn ' + STATUS_CLASSES[status];
+  btn.textContent = STATUS_LABELS[status];
+}
+
+// ── Notes ──────────────────────────────────────────────
+function saveNote(el, key) {
+  const s = getState();
+  s[key] = el.value;
+  setState(s);
+}
+
+// ── Deliverables ──────────────────────────────────────
+function saveDel(el, key) {
+  const s = getState();
+  s[key] = el.checked;
+  setState(s);
+  el.nextElementSibling.className = 'del-label' + (el.checked ? ' checked' : '');
+  updateStats();
+}
+
+// ── Stats ─────────────────────────────────────────────
+function updateStats() {
+  const s = getState();
+  let done = 0, inprog = 0, dels = 0, total = 12;
+  for (let i = 1; i <= 12; i++) {
+    const st = s['wk-' + i + '_status'] || 'todo';
+    if (st === 'done') done++;
+    if (st === 'inprog') inprog++;
+  }
+  // count deliverable keys
+  Object.keys(s).forEach(k => { if (k.startsWith('wk') && k.includes('-d') && s[k] === true) dels++; });
+  document.getElementById('stat-done').textContent = done;
+  document.getElementById('stat-inprog').textContent = inprog;
+  document.getElementById('stat-del').textContent = dels;
+  const pct = Math.round((done / total) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('pct-label').textContent = pct + '%';
+}
+
+// ── Phase nav ─────────────────────────────────────────
+function showPhase(i) {
+  document.querySelectorAll('.phase-panel').forEach((p, j) => p.classList.toggle('active', j === i));
+  document.querySelectorAll('.nav-tab').forEach((t, j) => t.classList.toggle('active', j === i));
+}
+
+// ── Init — restore saved state ────────────────────────
+function init() {
+  const s = getState();
+  // Restore week statuses
+  for (let i = 1; i <= 12; i++) {
+    const id = 'wk-' + i;
+    const st = s[id + '_status'] || 'todo';
+    const card = document.getElementById(id);
+    if (!card) continue;
+    const btn = card.querySelector('.status-btn');
+    applyStatus(btn, st);
+  }
+  // Restore notes
+  document.querySelectorAll('.notes-textarea').forEach(ta => {
+    const key = ta.getAttribute('oninput').match(/'([^']+)'/)[1];
+    if (s[key]) ta.value = s[key];
+  });
+  // Restore checkboxes
+  document.querySelectorAll('.del-check').forEach(cb => {
+    const key = cb.getAttribute('onchange').match(/'([^']+)'/)[1];
+    if (s[key]) {
+      cb.checked = true;
+      cb.nextElementSibling.className = 'del-label checked';
+    }
+  });
+  updateStats();
+}
+
+init();
+</script>
+</body>
+</html>
