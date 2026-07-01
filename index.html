@@ -126,6 +126,15 @@
 
   footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
   footer a { color: var(--accent); text-decoration: none; }
+
+  .lesson-list { display: flex; flex-direction: column; gap: 8px; }
+  .lesson-block { border-left: 3px solid var(--phase-color, #1a237e); padding: 8px 11px; background: #f8f9ff; border-radius: 0 6px 6px 0; }
+  .lesson-title { font-size: 11px; font-weight: 700; color: var(--phase-color, #1a237e); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .lesson-body { font-size: 12px; color: #333; line-height: 1.55; }
+  .essential-links { padding: 10px 16px; border-top: 1px solid var(--border); background: #f9fafb; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .essential-links-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-right: 4px; }
+  .essential-link { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--accent); text-decoration: none; border: 1px solid var(--border); border-radius: 5px; padding: 4px 10px; background: white; }
+  .essential-link:hover { background: #f0f2ff; border-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -198,26 +207,31 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://docs.anthropic.com/en/home" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Claude Documentation Hub</div><div class="res-desc">Start here. Claude capabilities, use cases, and how it works — the official reference.</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank">
-                <span class="res-icon">▶️</span>
-                <div class="res-info"><div class="res-name">Andrej Karpathy — Intro to LLMs (1hr)</div><div class="res-desc">The clearest non-technical explanation of how LLMs work — use this in client conversations</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.accenture.com/us-en/about/accenture-song-index" target="_blank">
-                <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song — Insights Hub</div><div class="res-desc">Read 2–3 recent articles on AI and CX transformation. Get fluent in the Song narrative.</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Prompt Engineering Guide</div><div class="res-desc">Official best practices for prompting Claude — directly applicable to daily consulting work</div><span class="res-tag tag-free">Free</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">HOW LLMS WORK</div>
+                <div class="lesson-body">Large Language Models predict the next word (token) based on everything before it — trained on internet-scale text. They don't retrieve facts from a database; they reason and generate. A "context window" is the LLM's working memory — Claude's is up to 200K tokens, roughly 150,000 words. Longer context = more document, history, and instruction Claude can hold at once.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">WHY CLAUDE IS DIFFERENTIATED</div>
+                <div class="lesson-body">Claude is built by Anthropic with a focus on safety and reliability. Key advantages for consulting work: (1) Constitutional AI — trained to be helpful, harmless, and honest. (2) 200K context window — analyse entire contracts, reports, or datasets. (3) Strong reasoning and nuanced writing — ideal for strategy documents and client communications. (4) Enterprise-grade: no training on your data by default.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">PROMPT ENGINEERING BASICS</div>
+                <div class="lesson-body">The RCTFE framework: Role (who Claude should be — "You are a senior Accenture Song consultant"), Context (background the client would give you), Task (what to produce), Format (how to structure the output — bullet list, table, narrative), Examples (show one or two to set the standard). Better prompts = better outputs. Treat prompting like briefing a smart colleague.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">SONG'S AI THESIS</div>
+                <div class="lesson-body">Accenture Song's position: AI is reshaping how brands acquire, serve, and retain customers across B2B sales and B2C commerce. Song bridges AI capability with business outcomes — from strategy and platform selection through implementation and activation. Reinventors (companies that fully integrate AI into their operating model) grow revenue 2x faster than peers.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://docs.anthropic.com/en/home" target="_blank">📖 Anthropic Docs</a>
+          <a class="essential-link" href="https://www.anthropic.com/product/claude-code" target="_blank">💻 Claude Code</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -268,22 +282,30 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/unlock-your-data-with-data-cloud" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Salesforce Trailhead — Unlock Your Data with Data Cloud</div><div class="res-desc">Official trail covering unified profiles, data streams, and identity resolution. Free badge.</div><span class="res-tag tag-cert">Free badge</span></div>
-              </a>
-              <a class="resource" href="https://experienceleague.adobe.com/en/docs/experience-platform/landing/home" target="_blank">
-                <span class="res-icon">🔴</span>
-                <div class="res-info"><div class="res-name">Adobe Experience League — AEP Overview</div><div class="res-desc">Read the Get Started section. Understand Real-Time CDP architecture, XDM, identity namespaces.</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://randomant.net/what-is-a-customer-data-platform-in-plain-english/" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">What is a CDP? (Plain English)</div><div class="res-desc">Best plain-English explainer on CDPs — great mental model before diving into platform specifics</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">CDP vs CRM vs DMP vs DATA WAREHOUSE</div>
+                <div class="lesson-body">CRM (e.g. Salesforce Sales Cloud): tracks relationships, sales pipeline, account history — structured around the company's interactions. CDP (e.g. Salesforce Data Cloud, Adobe Real-Time CDP): unifies ALL customer touchpoints into one real-time profile — the AI data layer. DMP (e.g. Lotame): anonymous audience segments for advertising — cookie-based, largely obsolete post-cookie. Data Warehouse (e.g. Snowflake, BigQuery): historical analytics, batch processing, not real-time. Clients often have all four and need advisory on what to consolidate.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">HOW AI USES CUSTOMER DATA</div>
+                <div class="lesson-body">AI personalisation needs four ingredients: (1) Unified identity — one ID per customer across all touchpoints. (2) Behavioural signals — what they browse, click, buy, abandon. (3) Attributes — who they are (demographics, segment, tier). (4) Consent — permission to use it. Without clean, unified data, AI personalisation fails before it starts. "Garbage in, garbage out" is the single most common reason AI projects underdeliver.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">SALESFORCE DATA CLOUD</div>
+                <div class="lesson-body">Data Cloud ingests data from any source (CRM, website, mobile, partner data) → creates a unified customer profile in real time → connects to Einstein AI for predictions → feeds Agentforce for autonomous action. Renamed from "Customer Data Platform" in 2023, "Data 360" in late 2025 — same product, new branding. Key differentiator: native integration with the full Salesforce ecosystem.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">ADOBE REAL-TIME CDP</div>
+                <div class="lesson-body">AEP architecture: XDM schema (Experience Data Model — standardised way to structure customer data) → Identity namespace (links email, cookie, CRM ID into one profile) → Sensei AI (ML predictions — propensity, churn, LTV) → Journey Optimizer (real-time activation). Best fit: clients already on Adobe stack, B2C, complex multi-brand environments. Key differentiator: IP-indemnified AI (Firefly) and content supply chain integration.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/trails/unlock-your-data-with-data-cloud" target="_blank">☁️ Data Cloud Trailhead</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -332,22 +354,31 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.accenture.com/us-en/about/accenture-song-index" target="_blank">
-                <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song — Insights Hub</div><div class="res-desc">Read at least 3 recent reports. Note the themes, stats, and language Song uses with clients.</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.accenture.com/us-en/insights/consulting/total-enterprise-reinvention" target="_blank">
-                <span class="res-icon">🔄</span>
-                <div class="res-info"><div class="res-name">Accenture — Total Enterprise Reinvention</div><div class="res-desc">The TER thesis — strategic backdrop for all Song AI advisory work</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">
-                <span class="res-icon">📈</span>
-                <div class="res-info"><div class="res-name">McKinsey — State of AI Report (2025)</div><div class="res-desc">Enterprise AI adoption benchmarks — use these numbers in client conversations and proposals</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">SONG'S FOUR SERVICE AREAS</div>
+                <div class="lesson-body">(1) CX Transformation — redesigning end-to-end customer journeys, experience strategy, service design. (2) MarTech Advisory — platform strategy, vendor selection, implementation, optimisation of the marketing technology stack. (3) GenAI for Marketing — AI content at scale, personalisation engines, agentic marketing workflows. (4) Commerce & Sales — B2B sales reinvention, B2C commerce execution, loyalty, and platform monetisation.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">HOW SONG WINS AGAINST COMPETITORS</div>
+                <div class="lesson-body">vs WPP / Publicis / Dentsu: Song has consulting and technology depth they lack — we implement, they create. vs Deloitte Digital / Accenture Interactive (historically): Song has marketing and commerce expertise plus Accenture's technology backbone. vs McKinsey / BCG: Song delivers, not just advises. The winning message: "We bring strategy, technology, and activation in one integrated team — no hand-offs, no gaps."</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">TOTAL ENTERPRISE REINVENTION</div>
+                <div class="lesson-body">Accenture's thesis: AI requires reinventing the core of how a business operates — not just adopting new tools. For Song clients, reinvention means transforming how they grow: new routes to market, AI-native customer experiences, automated commerce operations. Key stat from Accenture research: companies that fully reinvent (vs partially adopt) achieve 2x revenue growth over 5 years. This is the strategic framing behind every Song engagement.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">DISCOVERY FRAMEWORK</div>
+                <div class="lesson-body">Five questions every Song AI conversation starts with: (1) Where is the biggest friction in your customer journey today? (2) What customer data do you have, how clean is it, and is it consented? (3) What platforms are you running — and which are working? (4) What's your risk appetite for AI — conservative (human-in-loop) or bold (autonomous)? (5) What does success look like in 12 months — revenue, cost, NPS, or speed? Listen carefully — the answers reveal the engagement.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://www.accenture.com/us-en/about/accenture-song-index" target="_blank">🎵 Song Insights Hub</a>
+          <a class="essential-link" href="https://www.accenture.com/us-en/insights/consulting/total-enterprise-reinvention" target="_blank">🔄 Total Enterprise Reinvention</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -410,22 +441,26 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.pega.com/next-best-action-marketing" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Pega — Next Best Action Marketing</div><div class="res-desc">Enterprise NBA framework with real examples — how Song clients implement it in practice</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">McKinsey — The Value of Getting Personalisation Right</div><div class="res-desc">40% revenue uplift benchmark data — use these numbers to build personalisation business cases</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/einstein-next-best-action" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Trailhead — Einstein Next Best Action</div><div class="res-desc">Understand how SFDC implements NBA — strategy + recommendation framework. Free badge.</div><span class="res-tag tag-cert">Free badge</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">PERSONALISATION MATURITY MODEL</div>
+                <div class="lesson-body">Level 1 — Rule-based: if segment = "high value" show offer X. Fast to implement, low relevance. Level 2 — Segment-based: cluster customers by behaviour, serve segment content. Better, but still blunt. Level 3 — ML-driven: predict what each individual wants, when. Requires clean data and a CDP. Level 4 — Real-time agentic: AI monitors live signals and acts autonomously per customer. Most clients are at Level 1–2 and believe they're at Level 3. Your job: diagnose honestly, then roadmap to Level 3+.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">NEXT-BEST-ACTION (NBA)</div>
+                <div class="lesson-body">NBA is the decision engine behind Agentforce, Pega, and Adobe Target. Four components: (1) Eligibility — is this customer in scope for this action? (2) Propensity — ML model scores likelihood to respond. (3) Business rules — channel caps, budget limits, fatigue rules (no more than 3 contacts per week). (4) Arbitration — when multiple actions qualify, which wins? Typically highest expected value. NBA is not a single tool — it's an architecture. Song advises on all four layers.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">PERSONALISATION ROI BENCHMARKS</div>
+                <div class="lesson-body">McKinsey benchmark: top personalisation performers see 10–15% revenue uplift on average, up to 40% for best-in-class. Key metrics to promise in a business case: conversion rate lift (typically +5–15%), average order value increase (+8–12%), content production cost reduction (50–70% with GenAI), NPS improvement (+5–10 points from relevance). Always present a range: conservative / base / optimistic. Never anchor on the top number alone.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/modules/einstein-next-best-action" target="_blank">☁️ Einstein NBA — Trailhead</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -473,22 +508,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/get-ready-for-agentforce" target="_blank">
-                <span class="res-icon">🤖</span>
-                <div class="res-info"><div class="res-name">Trailhead — Get Ready for Agentforce</div><div class="res-desc">Official trail — configure agents, knowledge bases, intents, and escalation rules. Free badge.</div><span class="res-tag tag-cert">Free badge</span></div>
-              </a>
-              <a class="resource" href="https://experienceleague.adobe.com/en/docs/journey-optimizer/using/get-started/get-started" target="_blank">
-                <span class="res-icon">🔴</span>
-                <div class="res-info"><div class="res-name">Adobe Experience League — Journey Optimizer</div><div class="res-desc">AI content generation, real-time journey triggers, Sensei integration</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/become-an-agentblazer-champion-2026" target="_blank">
-                <span class="res-icon">🤖</span>
-                <div class="res-info"><div class="res-name">Trailhead — Agentblazer Champion 2026</div><div class="res-desc">Updated 2026 Agentforce fundamentals trail — covers latest agent capabilities and configuration</div><span class="res-tag tag-cert">Badge</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">AGENTFORCE ARCHITECTURE</div>
+                <div class="lesson-body">The four-layer stack: (1) Data Cloud — unified real-time customer profile (the memory). (2) Einstein AI — predictions (propensity, sentiment, next action). (3) Agentforce — the agent layer, where autonomous action happens. (4) Channels — web, chat, email, voice, Slack. Agent types: Service Agent (handles customer queries end-to-end), SDR Agent (qualifies leads, books meetings), Commerce Agent (assists the buying journey), Coach Agent (gives reps real-time guidance). Key advisory point: Agentforce is only as good as the Data Cloud feeding it.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">ADOBE SENSEI GENAI ACROSS THE STACK</div>
+                <div class="lesson-body">Adobe has embedded AI across every product: AEP — predictive audience segments, churn scores, LTV predictions. Journey Optimizer — AI-generated email subject lines, send-time optimisation, real-time journey branching. Target — AI-driven A/B and multivariate testing. Firefly — IP-indemnified image and video generation (brands can't be sued for copyright). Advantage over point solutions: one AI layer across the whole content and data stack. Key client question: "Is your Adobe licence giving you access to all of these?"</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">MARTECH STACK ADVISORY FRAMEWORK</div>
+                <div class="lesson-body">When to consolidate: client has 20+ tools, poor data integration between them, high total licensing cost, team can't use what they have. When to integrate (best-of-breed): existing tools are performing well, team expertise is strong, switching costs are high. Song recommendation process: (1) Capability map — what do you need to do? (2) Gap analysis — what can't you do today? (3) Vendor shortlist — 2–3 options per gap. (4) TCO model — total cost of ownership over 3 years including implementation. (5) Decision. Never recommend a platform without running through all five.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/trails/get-ready-for-agentforce" target="_blank">🤖 Agentforce Trailhead</a>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/trails/become-an-agentblazer-champion-2026" target="_blank">⭐ Agentblazer 2026</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude + Trailhead Task This Week</div>
@@ -538,22 +578,28 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://firefly.adobe.com/" target="_blank">
-                <span class="res-icon">🔥</span>
-                <div class="res-info"><div class="res-name">Adobe Firefly — AI Creative Studio</div><div class="res-desc">IP-indemnified enterprise creative AI. Generate images, extend backgrounds, recolour assets.</div><span class="res-tag tag-tool">Free trial</span></div>
-              </a>
-              <a class="resource" href="https://docs.n8n.io/try-it-out/quickstart/" target="_blank">
-                <span class="res-icon">⚡</span>
-                <div class="res-info"><div class="res-name">n8n — Quick Start Guide</div><div class="res-desc">Build your first AI-connected workflow in minutes. Free cloud trial available.</div><span class="res-tag tag-tool">Free tier</span></div>
-              </a>
-              <a class="resource" href="https://skillshop.docebosaas.com/learn/courses/14810/google-analytics-certification" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">Google Skillshop — GA4 Certification</div><div class="res-desc">Free GA4 certification — 75 minutes, 50 questions. Sit and pass in one session.</div><span class="res-tag tag-cert">Free cert</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">AI CONTENT SUPPLY CHAIN</div>
+                <div class="lesson-body">Traditional pipeline: brief → agency → first draft → review → revise (x3) → approve → publish. Timeline: 4–8 weeks. Cost: £5,000–£50,000 per campaign. AI-powered pipeline: brief → AI drafts (Claude for copy, Firefly for visuals) → human review and edit → approve → publish. Timeline: 1–3 days. Cost: 60–70% lower. The human role shifts from creator to editor and director. Song advisory: AI content doesn't replace creative strategy — it eliminates the execution bottleneck.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">N8N & WORKFLOW AUTOMATION</div>
+                <div class="lesson-body">n8n is an open-source workflow automation tool (like Zapier but more powerful and self-hostable). Structure: Trigger (new CRM lead, form submission, schedule, webhook) → Nodes (Claude API call, data transform, conditional logic) → Output (send email, update Salesforce, post to Slack, write to Google Sheet). Key advantage: you can call any API including Claude, making it an agentic automation platform. Free to self-host, or use n8n.cloud on a free trial. Recommended for: marketing automation, lead routing, content workflows, reporting pipelines.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">POST-COOKIE MEASUREMENT</div>
+                <div class="lesson-body">Third-party cookies are largely gone. Replacement approaches: (1) GA4 — first-party signals, ML-based attribution, cross-device modelling. Now the baseline. (2) Marketing Mix Modelling (MMM) — statistical regression of media spend vs revenue outcomes. Shows true channel contribution. (3) Incrementality testing — holdout groups to measure true lift from a specific campaign or channel. (4) Data Clean Rooms (AWS Clean Rooms, Google Ads Data Hub) — privacy-safe measurement across first-party datasets. Song advisory: GA4 + MMM is the minimum viable measurement stack for 2025. Start there.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://skillshop.docebosaas.com/learn/courses/14810/google-analytics-certification" target="_blank">📊 GA4 Certification</a>
+          <a class="essential-link" href="https://docs.n8n.io/try-it-out/quickstart/" target="_blank">⚡ n8n Quickstart</a>
+          <a class="essential-link" href="https://firefly.adobe.com/" target="_blank">🔥 Adobe Firefly</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude + Tools Task This Week</div>
@@ -616,22 +662,31 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank">
-                <span class="res-icon">🤖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Agents & Tool Use Docs</div><div class="res-desc">Official guide: tool use, memory, subagents, human-in-the-loop patterns</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Building Effective Agents</div><div class="res-desc">Anthropic's own patterns for reliable, safe agentic AI — essential pre-build reading</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.anthropic.com/product/claude-code" target="_blank">
-                <span class="res-icon">💻</span>
-                <div class="res-info"><div class="res-name">Claude Code — Product Page & Download</div><div class="res-desc">Install Claude Code — your agentic AI development environment for this phase</div><span class="res-tag tag-tool">Free tier</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">WHAT IS AN AI AGENT</div>
+                <div class="lesson-body">An AI agent is an LLM with the ability to take actions. The four components: (1) LLM — the reasoning engine (Claude). (2) Tools — functions the agent can call: search the web, read a file, call an API, write to a database. (3) Memory — what the agent knows: system prompt, conversation history, retrieved context. (4) Planning loop — the agent reasons about what to do, takes an action, observes the result, reasons again. This cycle (Reason → Act → Observe) is called the ReAct pattern. A single Claude API call is not an agent. An agent runs this loop autonomously over many steps.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">TOOL USE IN CLAUDE</div>
+                <div class="lesson-body">You define tools as structured schemas: name, description, parameters. Claude reads the descriptions and decides when to call each tool based on context — you don't hard-code "call this tool at step 3." Example tools: web_search (get current information), get_customer_profile (look up a customer in your CRM), send_email (trigger a communication), create_document (write to Google Docs). Claude is unusually good at knowing when NOT to use a tool (when it already knows the answer). Best practice: write clear tool descriptions — Claude uses them to decide when to call.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">HUMAN-IN-THE-LOOP DESIGN</div>
+                <div class="lesson-body">Critical principle: AI agents should pause for human approval at consequential decision points. Autonomous = fine for: research, drafting, data retrieval, analysis. Requires human approval: sending a communication to a customer, making a purchase, escalating a complaint, updating a CRM record. Design rule: the higher the stakes and the less reversible the action, the more you need a human gate. As an agent builds a track record of reliability, you can progressively remove gates. Start conservative, earn autonomy.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">AGENTIC AI USE CASES IN MARKETING & SALES</div>
+                <div class="lesson-body">Content agent: receive brief → research competitors → draft 3 variants → brand-check → return to human for approval. Campaign agent: ingest brief → define audience → generate creative → recommend channels → monitor and optimise. CX agent: receive customer query → identify intent → retrieve relevant data → resolve or escalate. Sales SDR agent: monitor intent signals → personalise outreach → qualify against criteria → book meeting → hand off to rep. Each use case follows the same ReAct architecture — what changes is the tools and business rules.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://www.anthropic.com/product/claude-code" target="_blank">💻 Claude Code Download</a>
+          <a class="essential-link" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">📖 Building Effective Agents</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Code Task This Week — Your First Agent</div>
@@ -680,22 +735,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank">
-                <span class="res-icon">📖</span>
-                <div class="res-info"><div class="res-name">Anthropic — Tool Use Guide</div><div class="res-desc">How to give Claude tools to call — the foundation of every agent you'll build</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.deeplearning.ai/courses/agentic-ai" target="_blank">
-                <span class="res-icon">🎓</span>
-                <div class="res-info"><div class="res-name">DeepLearning.AI — Agentic AI Course</div><div class="res-desc">Andrew Ng's free agentic AI course — reflection, tool use, planning, multi-agent patterns. Free to audit.</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/agentforce-sales-agents-quick-look" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Trailhead — Agentforce for Sales: Quick Look</div><div class="res-desc">How enterprise sales agents are configured in SFDC — useful reference for client conversations</div><span class="res-tag tag-cert">Badge</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">CONTENT AGENT ARCHITECTURE</div>
+                <div class="lesson-body">A production-grade content agent has three specialist agents in sequence: (1) Research Agent — given a brief, it searches for competitor positioning, audience insights, relevant stats, and brand guidelines. Tools: web_search, read_document. (2) Writer Agent — given research output, it generates copy in 2–3 variants (email, social, display). Tool: write_document. (3) Critic Agent — scores each variant against brand voice criteria (0–10) and flags compliance issues. Tool: read_guidelines. Human reviews the scored variants and approves. This pipeline produces better output than a single Claude prompt because each agent is specialised and focused.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">CX AGENT DESIGN PRINCIPLES</div>
+                <div class="lesson-body">Five components of a well-designed CX agent: (1) Intent classification — what does the customer actually want? (order status / return / complaint / general query). (2) Slot filling — collect the information needed to resolve it (order number, email, date of purchase). (3) Business logic — call your systems (check order status, apply return policy, retrieve account). (4) Response generation — natural language answer, empathetic tone. (5) Escalation logic — when sentiment is negative, issue is complex, or customer requests human. Test with at least 20 simulated conversations before calling it demo-ready.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">AGENT FAILURE MODES</div>
+                <div class="lesson-body">Three common failures and their mitigations: (1) Hallucination — agent states wrong information confidently. Fix: use RAG to ground responses in verified data, add confidence thresholds. (2) Scope creep — agent takes actions outside its intended remit. Fix: clear system prompt with explicit boundaries, restricted tool set. (3) Infinite loops — agent repeats the same action without making progress. Fix: max step limits (e.g. 10 iterations), loop detection logic. Document failure modes from testing — they become your governance artefact and show clients you've thought about risk.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank">📖 Claude Tool Use Docs</a>
+          <a class="essential-link" href="https://www.deeplearning.ai/courses/agentic-ai" target="_blank">🎓 DeepLearning.AI Agentic AI</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Code Task This Week — Two Agents</div>
@@ -744,22 +804,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.anthropic.com/research/building-effective-agents" target="_blank">
-                <span class="res-icon">👥</span>
-                <div class="res-info"><div class="res-name">Anthropic — Building Effective Agents</div><div class="res-desc">Read the multi-agent section specifically — how orchestrators and subagents coordinate</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.anthropic.com/responsible-scaling-policy" target="_blank">
-                <span class="res-icon">🛡️</span>
-                <div class="res-info"><div class="res-name">Anthropic — Responsible Scaling Policy</div><div class="res-desc">Anthropic's framework for safe AI — use as a model for client governance work</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank">
-                <span class="res-icon">⚖️</span>
-                <div class="res-info"><div class="res-name">ICO — AI & Data Protection Guidance</div><div class="res-desc">UK ICO's official guidance on applying GDPR to AI — key for UK client engagements</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">MULTI-AGENT ARCHITECTURE</div>
+                <div class="lesson-body">An orchestrator agent receives a complex task, breaks it into subtasks, and delegates to specialist agents. Patterns: (1) Sequential — Agent A outputs feeds Agent B inputs feeds Agent C. Good for: content pipelines, research → draft → review. (2) Parallel — Agents A, B, and C all work simultaneously, orchestrator synthesises. Good for: multi-channel campaigns, market research across sectors. (3) Hierarchical — orchestrator → team leads → workers. Good for: complex campaigns with multiple workstreams. Key design rule: keep each specialist agent narrow. A focused agent outperforms a general agent on its specific task.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">PROCESS AUTOMATION OPPORTUNITY MAP</div>
+                <div class="lesson-body">High automation potential (automate now): content drafting, lead qualification, data extraction and cleaning, report generation, campaign trafficking and QA, competitor monitoring. Medium potential (automate with oversight): Tier 1 customer service, personalisation recommendations, A/B test management, social listening. Low potential / keep human: creative direction and strategy, relationship management for key accounts, crisis response, board-level communications, any decision with significant reputational risk. Use this map in client discovery to rapidly identify quick wins.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">RESPONSIBLE AI FOR MARKETING</div>
+                <div class="lesson-body">Five principles every Song AI engagement must address: (1) Transparency — inform customers when AI is making decisions or generating content. (2) Fairness — test AI outputs for bias in targeting, pricing, and content. (3) Privacy — only use data that is consented, lawfully obtained, and minimised to what's needed. (4) Accountability — maintain a human who can explain and override any AI decision. (5) Safety — define what the agent can and cannot do; build guardrails into the system prompt and tool definitions. EU AI Act (2024): marketing AI is typically "limited risk" — transparency obligations apply. UK GDPR: AI decisions about individuals require human oversight options.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank">⚖️ ICO AI & GDPR Guidance</a>
+          <a class="essential-link" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank">🇪🇺 EU AI Act (Official)</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -820,22 +885,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.accenture.com/us-en/about/accenture-song-index" target="_blank">
-                <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song — Insights Hub</div><div class="res-desc">Review latest Song research on AI strategy and CX transformation</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">McKinsey — State of AI Report (2025)</div><div class="res-desc">Enterprise AI adoption benchmarks — cite these in client conversations and proposals</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.accenture.com/us-en/insights/consulting/total-enterprise-reinvention" target="_blank">
-                <span class="res-icon">🔄</span>
-                <div class="res-info"><div class="res-name">Accenture — Total Enterprise Reinvention</div><div class="res-desc">TER framework — the strategic context for all Song AI advisory work</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">AI READINESS ASSESSMENT FRAMEWORK</div>
+                <div class="lesson-body">Five dimensions to assess: (1) Data — quality, coverage, unification, consent. (2) Technology — current stack, cloud maturity, integration capability. (3) Talent — AI literacy across the team, data science capability, prompt engineering skills. (4) Governance — AI policies, risk management, oversight processes. (5) Culture — executive sponsorship, appetite for experimentation, change readiness. Score each 1–4 (1 = not started, 4 = leading). Radar chart the results. The lowest-scoring dimension is always the bottleneck — address it first or the AI investment stalls.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">BUILD VS BUY VS PARTNER</div>
+                <div class="lesson-body">Build (develop custom AI capability internally): maximum control and differentiation, highest cost, requires engineering talent. Best for: core IP, unique competitive advantage. Buy (purchase a SaaS AI solution): faster time to value, lower upfront cost, vendor dependency. Best for: commodity AI features — content generation, chatbots, search. Partner (Accenture + platform vendor — Salesforce, Adobe, Google): leverage ecosystem capabilities, faster implementation, ongoing support. Best for: platform-led transformation at scale. Most clients need all three: buy for speed, build for differentiation, partner for scale.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">AGENTIC OPERATING MODEL</div>
+                <div class="lesson-body">Traditional marketing team: campaign manager directs agency, content team creates assets, data analyst runs reports, paid media manager executes. AI-augmented team: AI agents handle content production, campaign trafficking, performance reporting, and data extraction. Humans handle: strategy, creative direction, stakeholder relationships, agent oversight. New roles emerging: Prompt Engineer (designs agent instructions), AI QA Reviewer (validates outputs before activation), Agent Designer (architects multi-agent workflows). Estimated impact: 30–40% reduction in execution headcount, growth in strategy and oversight roles. Frame this as "role evolution" not "job loss" in client conversations.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://www.accenture.com/us-en/insights/consulting/total-enterprise-reinvention" target="_blank">🔄 Total Enterprise Reinvention</a>
+          <a class="essential-link" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">📊 McKinsey State of AI 2025</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week — Build Your Advisory Toolkit</div>
@@ -882,22 +952,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.forrester.com/policies/tei/" target="_blank">
-                <span class="res-icon">💰</span>
-                <div class="res-info"><div class="res-name">Forrester — Total Economic Impact Methodology</div><div class="res-desc">Free overview of the TEI framework Accenture uses for technology business cases</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank">
-                <span class="res-icon">🇬🇧</span>
-                <div class="res-info"><div class="res-name">ICO — AI & UK GDPR Guidance</div><div class="res-desc">Practical guidance for UK client engagements — what data protection means for marketing AI</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank">
-                <span class="res-icon">⚖️</span>
-                <div class="res-info"><div class="res-name">EU AI Act — Official Regulation Text</div><div class="res-desc">The full EU AI Act — high-risk classification, obligations, and timelines. Also see artificialintelligenceact.eu for a plain-English summary.</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">AI BUSINESS CASE STRUCTURE</div>
+                <div class="lesson-body">Benefits — three categories: (1) Cost reduction: content production (60–70% cost reduction), customer service automation (30–40% deflection), data processing (80%+ time saving). (2) Revenue uplift: personalisation (10–40% conversion lift), faster campaign velocity (3–5x), improved retention (5–15% churn reduction). (3) Strategic value: speed to market, data asset creation, competitive differentiation. Costs — four categories: technology (API, platform licensing, infrastructure), engineering and implementation, training and change management, ongoing governance and oversight. Always build a 3-year model: Year 1 costs dominate, Year 2–3 benefits compound.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">RISK-ADJUSTED ROI</div>
+                <div class="lesson-body">Three risks to quantify in every AI business case: (1) Hallucination risk — if the AI produces wrong outputs, what's the cost? (reputational damage, compliance breach, customer compensation). Mitigation: human review gates, RAG grounding. (2) Adoption risk — if the team doesn't use it, what's wasted? (sunk implementation cost). Mitigation: change management budget, champion network, phased rollout. (3) Regulatory risk — if the regulator fines or requires remediation (GDPR, EU AI Act). Mitigation: governance framework, legal review. Apply a risk discount to the base case: conservative = 50% of base benefits in Year 1, scaling to 80% by Year 3.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">REGULATORY ESSENTIALS FOR MARKETING AI</div>
+                <div class="lesson-body">EU AI Act (in force 2024, enforcement phased to 2026): AI systems are classified by risk. Marketing AI (personalisation, content generation, chatbots) is generally "limited risk" — obligation is transparency: tell users when they're interacting with AI. "High risk" (credit scoring, recruitment, biometric ID) requires conformity assessment and human oversight. UK GDPR: automated decision-making that significantly affects individuals (targeting, pricing) requires: a legal basis, the right to object, and human review on request. Practical advice to clients: document your AI use cases, classify them by risk level, and implement disclosure notices now — before regulators come asking.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://www.forrester.com/policies/tei/" target="_blank">💰 Forrester TEI Methodology</a>
+          <a class="essential-link" href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/" target="_blank">⚖️ ICO AI Guidance</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week — Business Case + Role-Play</div>
@@ -945,22 +1020,23 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Tools & Resources</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.linkedin.com/help/linkedin/answer/a522427" target="_blank">
-                <span class="res-icon">💼</span>
-                <div class="res-info"><div class="res-name">LinkedIn — How to Publish an Article</div><div class="res-desc">Official LinkedIn guide to writing and publishing articles — primary external publishing platform</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.loom.com" target="_blank">
-                <span class="res-icon">🎥</span>
-                <div class="res-info"><div class="res-name">Loom — Screen + Camera Recording</div><div class="res-desc">Record your agent demo. 90 seconds of demo is worth more than any slide deck.</div><span class="res-tag tag-free">Free tier</span></div>
-              </a>
-              <a class="resource" href="https://in.accenture.com/accenturesong/" target="_blank">
-                <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song Internal Hub</div><div class="res-desc">Share internally — visibility with Song leadership and staffing teams</div><span class="res-tag tag-free">Internal</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">WRITING A COMPELLING POV ARTICLE</div>
+                <div class="lesson-body">Structure for a 700–900 word LinkedIn article: (1) Hook — a bold, specific claim that challenges conventional thinking. Not "AI is changing marketing." Try: "Most CMOs are investing in AI the wrong way — here's what 12 weeks of building it taught me." (2) The problem — what's broken in the status quo? Use a client-recognisable pain point. (3) The insight — what did you learn / build / discover? Anchor in specifics. (4) The implication — what should the reader do differently? (5) The call to action — invite a conversation, not a sale. Back every claim with something real — a prototype you built, a metric you found, a client pattern you observed.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">BUILDING YOUR SME PROFILE</div>
+                <div class="lesson-body">Three assets that signal AI SME status to Song leadership and clients: (1) Published POV on LinkedIn — visible externally, shows you have a point of view, not just skills. (2) Loom demo of a working prototype — 90 seconds of a working agent is worth 10 slides. Post it as a LinkedIn video. (3) Internal knowledge share — present to your Song team or practice area. Internal visibility leads to staffing on the engagements where you can apply what you've built. Combine all three and you have a differentiated profile at the 2–5 year experience level.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://www.linkedin.com/help/linkedin/answer/a522427" target="_blank">💼 Publish on LinkedIn</a>
+          <a class="essential-link" href="https://www.loom.com/" target="_blank">🎥 Loom — Record Demo</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week — Your POV Article</div>
@@ -1020,22 +1096,31 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/agentforce-sales-agents-quick-look" target="_blank">
-                <span class="res-icon">🤖</span>
-                <div class="res-info"><div class="res-name">Trailhead — Agentforce for Sales: Quick Look</div><div class="res-desc">How Agentforce SDR and Sales Coach agents work — lead qualification and pipeline coaching. Free badge.</div><span class="res-tag tag-cert">Free badge</span></div>
-              </a>
-              <a class="resource" href="https://www.salesforce.com/sales/ai/" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Salesforce — Einstein AI for Sales</div><div class="res-desc">AI features across Sales Cloud: forecasting, deal scoring, call intelligence, and pipeline insights</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/unlocking-profitable-b2b-growth-through-gen-ai" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">McKinsey — Unlocking GenAI in B2B Sales</div><div class="res-desc">Seven GenAI use cases across the B2B deal cycle — benchmarks for client conversations</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">B2B SALES LIFECYCLE</div>
+                <div class="lesson-body">Pre-purchase: Route to Market (channel strategy, partner management, field vs digital coverage model), Lead Generation (inbound content, outbound SDR, intent data signals), Salesforce Effectiveness (CRM hygiene, rep onboarding, quota management). Moment of Truth: Sales Excellence (discovery, demo, objection handling, competitive differentiation), CPQ — Configure Price Quote (automated product configuration and pricing, reduces quote time from days to hours), Deal Execution (negotiation, legal, approval workflows, close). Post-purchase: Customer Success (adoption, health scores, QBR), Cross-sell / Upsell (expansion revenue, AI opportunity identification), Renewal / Retention (early churn warning, automated renewal flows).</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">AI APPLICATIONS IN B2B SALES</div>
+                <div class="lesson-body">Lead scoring: ML model predicts conversion likelihood → reps prioritise high-score accounts first. Conversation intelligence: AI analyses sales calls → surfaces coaching insights, objection patterns, competitor mentions. CPQ automation: AI configures optimal product bundle and price based on customer profile and deal context → quote in minutes not days. Deal risk scoring: AI monitors deal signals (engagement drop, stakeholder change, competitor mention) → flags at-risk deals for manager intervention. Outreach personalisation: AI generates personalised email sequences at scale using company and contact signals. Typical impact: 20–30% increase in rep productive selling time.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">AGENTFORCE SDR AGENT</div>
+                <div class="lesson-body">The Agentforce SDR Agent automates the top-of-funnel: monitors intent signals (website visits, content downloads, event attendance) → personalises outreach sequence → qualifies against BANT criteria (Budget, Authority, Need, Timeline) → books meetings in rep calendar → hands off with full context summary. Design boundaries: SDR agent handles volume and qualification; human reps handle relationships, complex objections, and enterprise accounts. Key configuration: knowledge base (your products, ICP, objection responses), qualification criteria, handoff triggers, and escalation rules. The better your knowledge base, the better the agent performs.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">SALES REINVENTION — THE SONG LENS</div>
+                <div class="lesson-body">Song's Sales Reinvention offering: AI-Led Service Transformation drives fundamental change by orchestrating every seller interaction — personalising conversations in real time, surfacing next best actions for reps, and automating admin tasks (CRM updates, follow-up emails, call summaries). The B2B Sales Operating Model shifts: from coverage-led (more reps = more revenue) to intelligence-led (right action, right customer, right moment). Revenue-as-a-Service (RaaS) and Inside Sales models reduce cost to sell by 30–50% while maintaining or growing revenue. Song advisory: start with a Sales Reinvention diagnostic — map where time is lost vs where it creates value.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/modules/agentforce-sales-agents-quick-look" target="_blank">🤖 Agentforce for Sales — Trailhead</a>
+          <a class="essential-link" href="https://www.salesforce.com/sales/ai/" target="_blank">☁️ Salesforce Einstein Sales AI</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -1084,22 +1169,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/trails/get-started-with-salesforce-b2c-commerce" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Trailhead — Get Started with Salesforce B2C Commerce</div><div class="res-desc">Covers Commerce Cloud architecture, storefront setup, Einstein AI features. Free badge.</div><span class="res-tag tag-cert">Free badge</span></div>
-              </a>
-              <a class="resource" href="https://experienceleague.adobe.com/en/docs/commerce-admin/start/guide-overview" target="_blank">
-                <span class="res-icon">🔴</span>
-                <div class="res-info"><div class="res-name">Adobe Commerce — Getting Started Guide</div><div class="res-desc">Adobe's composable commerce platform — merchandising, AI features, and personalisation</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/europes-new-ecommerce-agenda-how-ai-is-resetting-growth-and-competition" target="_blank">
-                <span class="res-icon">📊</span>
-                <div class="res-info"><div class="res-name">McKinsey — AI-Powered eCommerce & Agentic Shopping</div><div class="res-desc">How AI is resetting ecommerce growth — agentic shopping, digital shelf, and eRGM benchmarks</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">B2C COMMERCE LIFECYCLE</div>
+                <div class="lesson-body">Pre-purchase: Design Experiences (UX, journey design, service design), Build Platforms (composable commerce, headless architecture, API-first), Generate Demand (paid media, SEO, social commerce). Moment of Truth: Digital Shelf (product visibility and content quality on retailer.com, Amazon, D2C), Commerce Content (AI-generated PDPs, A+ content, personalised product pages), eRGM — eCommerce Revenue Growth Management (dynamic pricing, inventory optimisation, promotional effectiveness). Post-purchase: Loyalty Management (programme design, AI personalisation of rewards), Ratings & Reviews (reputation management, sentiment analysis), Platform Monetisation (retail media, data licensing, co-op analytics).</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">eCOMMERCE REVENUE GROWTH MANAGEMENT (eRGM)</div>
+                <div class="lesson-body">eRGM applies AI to maximise revenue across four levers: (1) Dynamic pricing — AI monitors competitor prices, demand signals, and inventory levels → adjusts price in real time to optimise margin and conversion. (2) Inventory optimisation — ML demand forecasting → right stock in right location → reduces stockouts and overstock. (3) Promotional effectiveness — AI identifies which promotion type (% off, GWP, bundle) drives highest incremental revenue for each segment. (4) Digital shelf share — content quality score drives search ranking drives conversion. Combined, eRGM clients typically see 3–8% incremental revenue and 2–5% margin improvement. This is a high-value Song offering.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">DIGITAL SHELF & COMPOSABLE COMMERCE</div>
+                <div class="lesson-body">Digital Shelf: the sum of a brand's product visibility across all digital channels — retailer.com search, Amazon product pages, D2C site, social commerce. AI applications: automated content scoring (is your PDP complete, SEO-optimised, visually compelling?), competitor monitoring (are they outranking you?), review sentiment analysis (what are customers saying?), search rank tracking. Key metric: Digital Shelf Score — a composite of visibility, content quality, and conversion. Composable Commerce: modern architecture where front-end (storefront) is decoupled from back-end (commerce engine). Benefits: faster innovation, best-of-breed components, omnichannel flexibility. Platforms: Salesforce B2C Commerce, Adobe Commerce, Commercetools.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/trails/get-started-with-salesforce-b2c-commerce" target="_blank">☁️ Salesforce B2C Commerce — Trailhead</a>
+          <a class="essential-link" href="https://experienceleague.adobe.com/en/docs/commerce-admin/start/guide-overview" target="_blank">🔴 Adobe Commerce Docs</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -1147,22 +1237,27 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Where to Learn</div>
-            <div class="resource-list">
-              <a class="resource" href="https://trailhead.salesforce.com/content/learn/modules/salesforce-customer-service-strategies" target="_blank">
-                <span class="res-icon">☁️</span>
-                <div class="res-info"><div class="res-name">Trailhead — Customer Service & Success Strategies</div><div class="res-desc">AI-powered customer success: service channels, retention, and agent-assisted support</div><span class="res-tag tag-cert">Free badge</span></div>
-              </a>
-              <a class="resource" href="https://antavo.com/blog/ai-loyalty-programs/" target="_blank">
-                <span class="res-icon">📈</span>
-                <div class="res-info"><div class="res-name">Antavo — AI Loyalty Programs Guide</div><div class="res-desc">Comprehensive guide to AI-powered loyalty programmes — programme design, personalisation, and ROI</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
-              <a class="resource" href="https://www.accenture.com/us-en/about/accenture-song-index" target="_blank">
-                <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song — Commerce & Loyalty Insights</div><div class="res-desc">Song's thinking on agentic loyalty and commerce — being found, chosen, and transacted by AI agents</div><span class="res-tag tag-read">Reading</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">AGENTIC LOYALTY</div>
+                <div class="lesson-body">Traditional loyalty: points for purchases, monthly statement, human-managed exceptions, slow to evolve. Agentic loyalty: AI monitors engagement signals continuously → proactively surfaces personalised rewards before the customer thinks to ask → resolves tier disputes and point queries autonomously → predicts churn risk and intervenes with a targeted save offer before the customer disengages. Programme design shifts: from transactional (earn and burn) to emotional (recognition, surprise, community). Song advisory: loyalty programmes with AI personalisation see 15–25% higher redemption rates and 10–20% better retention vs static programmes.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">B2B CUSTOMER SUCCESS AI</div>
+                <div class="lesson-body">Customer health score: composite ML model combining product usage (logins, feature adoption), support signals (ticket volume, escalation rate), commercial signals (contract size, growth trajectory), engagement signals (QBR attendance, executive contact frequency), and NPS → outputs a 0–100 health score with churn probability. AI applications: early warning alerts trigger proactive CSM outreach before the customer raises a concern. AI-generated QBR decks (pull usage data, generate slides, flag risks). Cross-sell opportunity identification from usage pattern gaps. Renewal risk scoring 90 days before renewal date. Impact: CSMs can manage 30–40% larger portfolios with AI assistance.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">COMMERCE DATA MONETISATION & AGENTIC COMMERCE</div>
+                <div class="lesson-body">Commerce data monetisation: first-party commerce data has significant value beyond internal use. Three revenue streams: (1) Retail media network — sell ad inventory (sponsored products, display, video) to brand suppliers. Amazon Advertising is the template — £37bn revenue in 2023. (2) Data licensing — sell anonymised audience insights to third parties (market research, financial services). (3) Co-op analytics — share sell-out data with suppliers in exchange for trade investment. Agentic Commerce (emerging): AI agents (Claude, Perplexity, ChatGPT shopping) are becoming buyers' agents — finding, comparing, and transacting on behalf of users. Brands must optimise for AI agent discovery: structured data, API accessibility, agent-readable product information. "Being found by AI agents" is the new SEO. Song is building advisory offerings around this now.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://trailhead.salesforce.com/content/learn/modules/salesforce-customer-service-strategies" target="_blank">☁️ Customer Success — Trailhead</a>
+          <a class="essential-link" href="https://antavo.com/blog/ai-loyalty-programs/" target="_blank">🏆 AI Loyalty Programmes Guide</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week</div>
@@ -1210,22 +1305,24 @@
             </div>
           </div>
           <div class="body-col">
-            <div class="section-label">Tools & Resources</div>
-            <div class="resource-list">
-              <a class="resource" href="https://www.linkedin.com/article/new" target="_blank">
-                <span class="res-icon">💼</span>
-                <div class="res-info"><div class="res-name">LinkedIn — Publish or Update Your Article</div><div class="res-desc">Update or publish a new POV now spanning AI, B2B Sales, and B2C Commerce</div><span class="res-tag tag-free">Free</span></div>
-              </a>
-              <a class="resource" href="https://www.loom.com" target="_blank">
-                <span class="res-icon">🎥</span>
-                <div class="res-info"><div class="res-name">Loom — Update Your Demo</div><div class="res-desc">Record a 90-second updated demo — show an agent relevant to Commerce or Sales</div><span class="res-tag tag-free">Free tier</span></div>
-              </a>
-              <a class="resource" href="https://in.accenture.com/accenturesong/" target="_blank">
-                <span class="res-icon">🎵</span>
-                <div class="res-info"><div class="res-name">Accenture Song Internal Hub</div><div class="res-desc">Share your full portfolio internally — visibility with Song leadership and staffing teams</div><span class="res-tag tag-free">Internal</span></div>
-              </a>
+            <div class="section-label">Core Concepts</div>
+            <div class="lesson-list">
+              <div class="lesson-block">
+                <div class="lesson-title">COMMERCE & SALES OPERATING MODEL</div>
+                <div class="lesson-body">Song's advisory lens on Commerce & Sales transformation: four capability areas to assess and build. (1) Strategy & Operating Model — rethink go-to-market strategy, sales coverage model, incentive design, and organisational structure for an AI-first world. (2) Sales Reinvention — AI-led transformation of frontline sales: agent-assisted selling, automated admin, intelligence-led coverage. (3) Commerce Platform — deliver a structured, repeatable commerce execution capability: digital shelf, eRGM, composable platform. (4) Data & Monetisation — generate incremental revenue from first-party data: retail media, data licensing, commerce analytics. Agentic Commerce sits across all four — it's the destination, not a separate workstream.</div>
+              </div>
+              <div class="lesson-block">
+                <div class="lesson-title">YOUR SME POSITIONING STATEMENT</div>
+                <div class="lesson-body">By Week 16 you can credibly say: "I advise on and build Data and AI solutions across the full Commerce and Sales lifecycle — from AI-powered personalisation and agentic marketing to B2B Sales Reinvention, eCommerce Revenue Growth Management, and Loyalty. I've built AI agents using Claude Code, configured Agentforce, and designed strategy frameworks for CMO and CRO-level conversations." This is a differentiated profile at the 2–5 year experience level. Most consultants at this level can describe AI. You can design it, build it, and advise on it.</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="essential-links">
+          <span class="essential-links-label">External:</span>
+          <a class="essential-link" href="https://www.linkedin.com/help/linkedin/answer/a522427" target="_blank">💼 Publish on LinkedIn</a>
+          <a class="essential-link" href="https://www.loom.com/" target="_blank">🎥 Loom — Record Demo</a>
+          <a class="essential-link" href="https://in.accenture.com/accenturesong/" target="_blank">🎵 Song Internal Hub</a>
         </div>
         <div class="build-section">
           <div class="build-label">🤖 Claude Task This Week — Final POV</div>
